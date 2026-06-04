@@ -7,7 +7,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   html, body { font-family: "Helvetica Neue", Arial, sans-serif; color: #2b2f3a; }
 
-  .slide { width: 13.333in; height: 7.5in; padding: 0.46in 0.6in 0.62in; position: relative; page-break-after: always; overflow: hidden; display: flex; flex-direction: column; }
+  .slide { width: 13.333in; height: 7.5in; padding: 0.46in 0.6in 0.34in; position: relative; page-break-after: always; overflow: hidden; display: flex; flex-direction: column; }
   .slide:last-child { page-break-after: auto; }
   .topbar { position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: linear-gradient(90deg,#ff2e6c,#ff3f6c 50%,#ff7a3d); }
 
@@ -17,8 +17,10 @@
   .intro { color: #565b67; font-size: 14px; line-height: 1.5; margin-bottom: 14px; }
   /* content fills the page between header and the footer band */
   .fill { flex: 1; display: flex; flex-direction: column; min-height: 0; }
-  .pg { position: absolute; bottom: 0.24in; right: 0.5in; color: #b7b9c1; font-size: 11px; }
-  .src { position: absolute; bottom: 0.24in; left: 0.6in; right: 1.2in; color: #b7b9c1; font-size: 9px; font-style: italic; line-height: 1.3; }
+  /* footer is in normal flow so nothing can ever overlap it */
+  .foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; border-top: 1px solid #ededf1; margin-top: 11px; padding-top: 6px; flex: none; }
+  .src { color: #b7b9c1; font-size: 9px; font-style: italic; line-height: 1.3; flex: 1; }
+  .pg { color: #b7b9c1; font-size: 11px; white-space: nowrap; }
 
   /* stat cards */
   .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; flex: 1; }
@@ -40,7 +42,7 @@
   .grow { flex: 1; display: flex; min-height: 0; }
   table { width: 100%; border-collapse: collapse; font-size: 12.5px; height: 100%; }
   th { background: #2b2f3a; color: #fff; text-align: left; padding: 11px 12px; font-size: 12.5px; }
-  td { padding: 11px 12px; border: 1px solid #e6e6ea; vertical-align: top; line-height: 1.45; }
+  td { padding: 9px 12px; border: 1px solid #e6e6ea; vertical-align: top; line-height: 1.42; }
   .fail { color: #e0245e; }
   .sol { color: #06a17e; font-weight: 700; }
   .keybox { background: #eef4ff; border-left: 5px solid #2f6bff; padding: 14px 16px; margin-top: 14px; font-size: 13.5px; line-height: 1.55; }
@@ -82,15 +84,15 @@
 
   /* prototype slide */
   .protorow { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; flex: 1; min-height: 0; }
-  .flow-list { list-style: none; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
-  .flow-list li { font-size: 12.5px; line-height: 1.46; padding: 9px 0; border-bottom: 1px dashed #e6e6ea; }
+  .flow-list { list-style: none; display: flex; flex-direction: column; justify-content: space-around; height: 100%; }
+  .flow-list li { font-size: 11.5px; line-height: 1.4; padding: 6px 0; border-bottom: 1px dashed #e6e6ea; }
   .flow-list li:last-child { border-bottom: none; }
   .flow-list .fname { font-weight: 700; }
-  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; height: 100%; }
-  .shot { border: 1px solid #e6e6ea; border-radius: 7px; overflow: hidden; display: flex; flex-direction: column; }
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; height: 100%; min-height: 0; }
+  .shot { border: 1px solid #e6e6ea; border-radius: 7px; overflow: hidden; display: flex; flex-direction: column; min-height: 0; }
   .shot img { width: 100%; flex: 1; min-height: 0; object-fit: cover; object-position: top; }
-  .shot .cap { font-size: 9.5px; color: #61656f; padding: 5px 7px; background: #faf9fc; }
-  .links { font-size: 12px; color: #565b67; margin-top: 12px; background:#f6f6f8; padding:11px 14px; border-radius:5px; line-height:1.5; }
+  .shot .cap { font-size: 9.5px; color: #61656f; padding: 5px 7px; background: #faf9fc; flex: none; }
+  .links { font-size: 11.5px; color: #565b67; margin-top: 12px; background:#f6f6f8; padding:10px 14px; border-radius:5px; line-height:1.5; flex: none; }
   .links code { background: #f3eefe; color: #5a23c8; padding: 1px 5px; border-radius: 3px; font-size:11px; }
 
   /* metrics */
@@ -100,7 +102,7 @@
   .mstat .h { font-weight: 700; font-size: 14px; margin: 7px 0 7px; }
   .mstat .d { font-size: 11.5px; color: #61656f; line-height: 1.42; }
   .mstat .tag { background: #ededf1; font-size: 11.5px; font-weight: 700; text-align: center; padding: 6px; border-radius: 4px; margin-top: 8px; }
-  .mbot { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; flex: 1; min-height: 0; margin-top: 14px; }
+  .mbot { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; flex: 1; min-height: 0; margin-top: 10px; }
   .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; min-height: 0; }
   .chart { text-align: center; display: flex; flex-direction: column; }
   .chart .ct { font-size: 12px; font-weight: 700; margin-bottom: 6px; }
@@ -148,7 +150,7 @@
     <div class="tag">Myntra StyleGenie — an AI-native styling intelligence layer that transforms fashion discovery from passive browsing into personalised, intent-driven experiences.</div>
     <div class="rule"></div>
     <div class="name">Akshat Singh</div>
-    <div class="roll">Roll No: 23113019</div>
+    <div class="roll">Enrollment No: 23113019</div>
     <div class="live">🔗 Live prototype: <a href="https://style-genie-myntra.vercel.app/">style-genie-myntra.vercel.app</a></div>
   </div>
   <div class="foot"><span>Open Project 2026 &nbsp;•&nbsp; Society of Business &nbsp;•&nbsp; Doremon Den</span><span>June 2026</span></div>
@@ -175,8 +177,7 @@
     </div>
     <div class="banner"><b>Hypothesis:</b> a Generative AI styling layer can reduce returns by 25%, lift conversion by 18%, and raise AOV by 22% — creating <b>₹1,200–1,700 Cr in annual impact</b> without re-platforming the app.</div>
   </div>
-  <div class="src">Sources: Myntra FY24 Annual Report (GMV &amp; MAU); RedSeer, "Fashion E-commerce Returns in India, 2024"; Baymard Institute, "Cart Abandonment Statistics, 2024".</div>
-  <div class="pg">1 / 8</div>
+  <div class="foot"><div class="src">Sources: Myntra FY24 Annual Report (GMV &amp; MAU); RedSeer, "Fashion E-commerce Returns in India, 2024"; Baymard Institute, "Cart Abandonment Statistics, 2024".</div><div class="pg">1 / 8</div></div>
 </section>
 
 <!-- 02 WHY GENAI -->
@@ -197,8 +198,7 @@
     </div>
     <div class="keybox"><b>Key Insight —</b> Traditional ML predicts what you might <i>click</i> next; Generative AI understands what you actually <i>need</i>. That is the difference between a search engine and a personal stylist. These are not incremental gains — they are categorically new capabilities, enabled by LLMs for language, multimodal models for vision, and generative composition for styling.</div>
   </div>
-  <div class="src">Sources: OpenAI CLIP (Radford et al., 2021); "Retrieval-Augmented Generation for Knowledge-Intensive NLP" (Lewis et al., 2020); Myntra Engineering Blog, "Search &amp; Discovery Architecture".</div>
-  <div class="pg">2 / 8</div>
+  <div class="foot"><div class="src">Sources: OpenAI CLIP (Radford et al., 2021); "Retrieval-Augmented Generation for Knowledge-Intensive NLP" (Lewis et al., 2020); Myntra Engineering Blog, "Search &amp; Discovery Architecture".</div><div class="pg">2 / 8</div></div>
 </section>
 
 <!-- 03 APPROACH & SOLUTION -->
@@ -223,8 +223,7 @@
     </div>
     <div class="map"><b>User segment → primary features:</b>&nbsp; Browser → Chat + TrendPulse &nbsp;·&nbsp; Returner → FitGenius + Outfit Studio &nbsp;·&nbsp; Occasion Shopper → Chat + Studio &nbsp;·&nbsp; Trend Chaser → Visual Match + TrendPulse</div>
   </div>
-  <div class="src">Sources: CLIP — Radford et al. (OpenAI, 2021); RAG — Lewis et al. (Facebook AI, 2020); Myntra Category Report FY24.</div>
-  <div class="pg">3 / 8</div>
+  <div class="foot"><div class="src">Sources: CLIP — Radford et al. (OpenAI, 2021); RAG — Lewis et al. (Facebook AI, 2020); Myntra Category Report FY24.</div><div class="pg">3 / 8</div></div>
 </section>
 
 <!-- 04 IMPLEMENTATION FLOWCHART -->
@@ -271,8 +270,7 @@
       <div class="fbox" style="background:#fff0f6"><span class="t" style="color:#ff2e6c">⑥ USER SEES OUTPUT</span><span class="d">3–5 Diwali outfit cards with prices, fit confidence and one-tap "Add to Bag".</span></div>
     </div>
   </div>
-  <div class="src">Sources: "Attention Is All You Need" (Vaswani et al., 2017); Pinecone Vector DB Architecture; OpenAI Function-Calling Docs; Google Gemini API Reference; Anthropic RAG Pattern Guide.</div>
-  <div class="pg">4 / 8</div>
+  <div class="foot"><div class="src">Sources: "Attention Is All You Need" (Vaswani et al., 2017); Pinecone Vector DB Architecture; OpenAI Function-Calling Docs; Google Gemini API Reference; Anthropic RAG Pattern Guide.</div><div class="pg">4 / 8</div></div>
 </section>
 
 <!-- 05 LIVE PROTOTYPE -->
@@ -298,21 +296,20 @@
     </div>
     <div class="links"><b>🔗 Live:</b> <code>https://style-genie-myntra.vercel.app/</code> — append deep links <code>#genie/festive%20look%20under%203k</code>, <code>#p/12</code>, <code>#visual</code>, <code>#trends</code> to jump straight to a feature. &nbsp;<b>Interaction model:</b> a floating concierge + inline AI cards — discoverable, never blocking the core flow. &nbsp;<b>Stack:</b> React + Vite; the demo's AI runs client-side and maps 1:1 to the production LLM + CLIP + RAG backend on slide 04.</div>
   </div>
-  <div class="src">Built with React + Vite, deployed on Vercel. Verified: production build ✓, ESLint clean ✓, 23/23 AI-engine unit tests ✓.</div>
-  <div class="pg">5 / 8</div>
+  <div class="foot"><div class="src">Built with React + Vite, deployed on Vercel. Verified: production build ✓, ESLint clean ✓, 23/23 AI-engine unit tests ✓.</div><div class="pg">5 / 8</div></div>
 </section>
 
 <!-- 06 METRICS -->
 <section class="slide">
   <div class="topbar"></div>
   <div class="head"><div class="secno">06</div><h1 class="title">Success Metrics &amp; Projected Business Impact</h1></div>
-  <div class="intro">Every feature is anchored to a specific, measurable KPI tied to a business outcome. Projections are modelled on published industry benchmarks for AI-driven personalisation in fashion e-commerce, applied to Myntra's FY24 scale.</div>
+  <div class="intro">Every feature is anchored to a specific, measurable KPI tied to a business outcome. Projections are modelled on published benchmarks for AI-driven personalisation, applied to Myntra's FY24 scale.</div>
   <div class="fill">
     <div class="mstats">
       <div class="mstat" style="border-top-color:#ff2e6c"><div class="n" style="color:#ff2e6c">25%</div><div class="h">Return Reduction</div><div class="d">FitGenius removes the #1 return driver — fit mismatch — by combining review mining with the user's body data before they buy.</div><div class="tag">₹525 Cr saved / yr</div></div>
       <div class="mstat" style="border-top-color:#06a17e"><div class="n" style="color:#06a17e">18%</div><div class="h">Conversion Uplift</div><div class="d">StyleGenie compresses discovery from 40 items to 5 curated looks, dramatically shortening the path from intent to purchase.</div><div class="tag">Direct GMV lift</div></div>
       <div class="mstat" style="border-top-color:#7b2ff7"><div class="n" style="color:#7b2ff7">22%</div><div class="h">AOV Increase</div><div class="d">Outfit Studio shifts buying from a single item to the complete look — an average of +1.8 items per order.</div><div class="tag">+₹340 / order</div></div>
-      <div class="mstat" style="border-top-color:#2f6bff"><div class="n" style="color:#2f6bff">2.4x</div><div class="h">Engagement</div><div class="d">TrendPulse builds a daily check-in habit — users return for AI-curated trends, not only when they intend to shop.</div><div class="tag">DAU / MAU ratio</div></div>
+      <div class="mstat" style="border-top-color:#2f6bff"><div class="n" style="color:#2f6bff">2.4x</div><div class="h">Engagement</div><div class="d">TrendPulse builds a daily check-in habit — users return for AI-curated trends, not just to shop.</div><div class="tag">DAU / MAU ratio</div></div>
     </div>
     <div class="mbot">
       <div style="display:flex; flex-direction:column; min-height:0;">
@@ -336,12 +333,11 @@
             <tr><td style="color:#2f6bff;font-weight:700">TrendPulse</td><td>DAU lift</td><td class="sol">+40%</td></tr>
           </table>
         </div>
-        <div class="impact" style="margin-top:auto"><div class="it">Total Projected Annual Impact: ₹1,200–1,700 Cr</div><div class="id">Revenue uplift ₹800–1,200 Cr + Return savings ₹400–525 Cr + Premium subscription ₹50–80 Cr. Validated via a 50/50 A/B holdout over 4–6 weeks.</div></div>
+        <div class="impact"><div class="it">Total Projected Annual Impact: ₹1,200–1,700 Cr</div><div class="id">Revenue uplift ₹800–1,200 Cr + Return savings ₹400–525 Cr + Premium subscription ₹50–80 Cr.</div></div>
       </div>
     </div>
   </div>
-  <div class="src">Sources: McKinsey, "The State of Fashion 2024" (return-cost benchmarks); BCG, "AI in Retail" (conversion ranges); Statista, "Myntra Revenue &amp; User Metrics FY24".</div>
-  <div class="pg">6 / 8</div>
+  <div class="foot"><div class="src">Sources: McKinsey, "The State of Fashion 2024" (return-cost benchmarks); BCG, "AI in Retail" (conversion ranges); Statista, "Myntra Revenue &amp; User Metrics FY24".</div><div class="pg">6 / 8</div></div>
 </section>
 
 <!-- 07 RISKS -->
@@ -359,8 +355,7 @@
       <div class="risk" style="border-top-color:#2f6bff"><div class="rh"><span class="rname">👥 Adoption</span><span class="sev" style="background:#2f6bff">Medium</span></div><div class="lbl">RISK</div><div class="rt">Users default to familiar browse-filter-scroll. AI features get ignored if presented as a separate, unfamiliar experience.</div><div class="lbl">MITIGATION</div><div class="rt">Soft inline integration — AI appears inside the existing flow, not a separate tab. Contextual nudges fire on struggle signals (long browse, repeated searches). A free tier builds the habit; premium upsell follows.</div></div>
     </div>
   </div>
-  <div class="src">Sources: "On the Dangers of Stochastic Parrots" (Bender et al., 2021); India DPDP Act 2023; OpenAI Pricing &amp; Rate-Limit Docs; Nielsen Norman Group, "AI Feature Adoption Patterns".</div>
-  <div class="pg">7 / 8</div>
+  <div class="foot"><div class="src">Sources: "On the Dangers of Stochastic Parrots" (Bender et al., 2021); India DPDP Act 2023; OpenAI Pricing &amp; Rate-Limit Docs; Nielsen Norman Group, "AI Feature Adoption Patterns".</div><div class="pg">7 / 8</div></div>
 </section>
 
 </body>
