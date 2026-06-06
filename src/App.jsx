@@ -4,10 +4,11 @@ import ProductCard from "./components/ProductCard.jsx";
 import ProductDetail from "./components/ProductDetail.jsx";
 import StyleGenieChat from "./components/StyleGenieChat.jsx";
 import VisualMatch from "./components/VisualMatch.jsx";
+import CapsuleStudio from "./components/CapsuleStudio.jsx";
 import TrendPulse from "./components/TrendPulse.jsx";
 import { PRODUCTS, getById } from "./data/products.js";
 
-function Home({ cat, onOpen, onAskGenie }) {
+function Home({ cat, onOpen, onAskGenie, onCapsule }) {
   const list = useMemo(
     () => (cat === "all" ? PRODUCTS : PRODUCTS.filter((p) => p.gender === cat || p.category === "footwear" || p.category === "accessory")),
     [cat]
@@ -21,7 +22,10 @@ function Home({ cat, onOpen, onAskGenie }) {
           <span className="ai-pill">✨ Powered by StyleGenie AI</span>
           <h1>Don't shop for clothes.<br />Shop for the moment.</h1>
           <p>Tell StyleGenie the occasion and vibe — get complete looks, your perfect size, and visual matches in seconds. Less scrolling, more styling.</p>
-          <button className="hero-cta" onClick={onAskGenie}>✨ Ask StyleGenie</button>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <button className="hero-cta" onClick={onAskGenie}>✨ Ask StyleGenie</button>
+            <button className="hero-cta" onClick={onCapsule} style={{ background: "rgba(255,255,255,0.16)", color: "#fff" }}>🧳 Build a Capsule</button>
+          </div>
         </div>
         <div style={{ fontSize: 90, opacity: 0.9 }}>🧞</div>
       </div>
@@ -57,6 +61,8 @@ function initialView() {
   const gm = h.match(/^genie\/(.+)$/);
   if (gm) return { route: { page: "home", cat: "all" }, chat: true, query: decodeURIComponent(gm[1]) };
   if (h === "visual") return { route: { page: "home", cat: "all" }, visual: true };
+  if (h === "capsule") return { route: { page: "home", cat: "all" }, capsule: true };
+  if (h === "capsule-go") return { route: { page: "home", cat: "all" }, capsule: true, capsuleAuto: true };
   return { route: { page: "home", cat: "all" } };
 }
 
@@ -67,6 +73,7 @@ export default function App() {
   const [toast, setToast] = useState("");
   const [chatOpen, setChatOpen] = useState(!!init.chat);
   const [visualOpen, setVisualOpen] = useState(!!init.visual);
+  const [capsuleOpen, setCapsuleOpen] = useState(!!init.capsule);
   const [pendingQuery, setPendingQuery] = useState(init.query ? { text: init.query, id: 1 } : null);
 
   useEffect(() => {
@@ -97,9 +104,10 @@ export default function App() {
         bagCount={bag.length}
         onVisualMatch={() => setVisualOpen(true)}
         onChipSearch={chipSearch}
+        onCapsule={() => setCapsuleOpen(true)}
       />
 
-      {route.page === "home" && <Home cat={route.cat} onOpen={openProduct} onAskGenie={() => setChatOpen(true)} />}
+      {route.page === "home" && <Home cat={route.cat} onOpen={openProduct} onAskGenie={() => setChatOpen(true)} onCapsule={() => setCapsuleOpen(true)} />}
       {route.page === "trends" && <TrendPulse onOpenProduct={openProduct} />}
       {route.page === "pdp" && current && (
         <ProductDetail
@@ -118,6 +126,7 @@ export default function App() {
 
       <StyleGenieChat open={chatOpen} setOpen={setChatOpen} onOpenProduct={openProduct} pendingQuery={pendingQuery} />
       <VisualMatch open={visualOpen} onClose={() => setVisualOpen(false)} onOpenProduct={openProduct} />
+      <CapsuleStudio open={capsuleOpen} onClose={() => setCapsuleOpen(false)} onOpenProduct={openProduct} auto={!!init.capsuleAuto} />
 
       {toast && <div className="toast">{toast}</div>}
     </div>

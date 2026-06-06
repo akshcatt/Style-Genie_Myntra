@@ -15,12 +15,13 @@
   .secno { font-family: Georgia, serif; font-size: 34px; font-weight: 700; color: #ff2e6c; line-height: 1; }
   h1.title { font-family: Georgia, serif; font-size: 30px; font-weight: 700; color: #1f2430; line-height: 1.08; }
   .intro { color: #565b67; font-size: 14px; line-height: 1.5; margin-bottom: 14px; }
-  /* content fills the page between header and the footer band */
   .fill { flex: 1; display: flex; flex-direction: column; min-height: 0; }
-  /* footer is in normal flow so nothing can ever overlap it */
   .foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; border-top: 1px solid #ededf1; margin-top: 11px; padding-top: 6px; flex: none; }
-  .src { color: #b7b9c1; font-size: 9px; font-style: italic; line-height: 1.3; flex: 1; }
+  .refs { color: #8b8e97; font-size: 9px; line-height: 1.45; flex: 1; }
+  .refs a { color: #2f6bff; text-decoration: underline; }
+  .refs b { color: #6b6f78; }
   .pg { color: #b7b9c1; font-size: 11px; white-space: nowrap; }
+  sup a { color: #2f6bff; text-decoration: none; font-weight: 700; font-size: 9px; }
 
   /* stat cards */
   .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; flex: 1; }
@@ -28,13 +29,11 @@
   .stat .n { font-family: Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1; }
   .stat .h { font-weight: 700; font-size: 15px; margin: 9px 0 9px; }
   .stat .d { font-size: 12.5px; color: #61656f; line-height: 1.5; }
-
   .subhead { font-family: Georgia, serif; font-size: 19px; font-weight: 700; margin: 14px 0 10px; }
   .segs { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; flex: 1; }
   .seg { background: #f6f6f8; border-left: 5px solid #7b2ff7; padding: 13px 15px; display: flex; flex-direction: column; }
   .seg .h { font-weight: 700; font-size: 13.5px; margin-bottom: 7px; }
   .seg .d { font-size: 12.5px; color: #61656f; line-height: 1.5; }
-
   .banner { background: #fff0f6; border-radius: 5px; padding: 13px 16px; margin-top: 14px; font-size: 13.5px; font-style: italic; }
   .banner b { font-style: normal; }
 
@@ -55,37 +54,37 @@
   .step .st { font-weight: 700; font-size: 13.5px; display: inline-block; margin-left: 7px; }
   .step .sd { font-size: 12px; color: #61656f; line-height: 1.5; margin-top: 7px; }
 
-  /* feature cards */
-  .feats { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; flex: 1; }
-  .fc { background: #f7f7f9; border-top: 5px solid #ff2e6c; border-radius: 4px; padding: 12px 13px; display: flex; flex-direction: column; }
-  .fc .ft { font-weight: 700; font-size: 13px; }
-  .fc .sub { font-family: Georgia, serif; font-size: 16px; font-weight: 700; margin: 2px 0 8px; }
-  .fc .solves { color: #fff; font-size: 10.5px; font-weight: 700; padding: 5px 6px; border-radius: 4px; text-align: center; margin-bottom: 9px; }
-  .fc .lbl { font-size: 9.5px; font-weight: 800; letter-spacing: .5px; margin-top: 2px; }
-  .fc .tx { font-size: 11px; color: #54596480; color: #565b67; line-height: 1.42; margin: 2px 0 7px; }
-  .fc .val { font-size: 11px; font-weight: 700; margin-top: auto; }
-  .map { font-size: 12px; color: #565b67; margin-top: 13px; background:#f6f6f8; padding:10px 14px; border-radius:5px; }
+  /* feature cards (3 x 2) */
+  .feats { display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: 1fr 1fr; gap: 12px; flex: 1; }
+  .fc { background: #f7f7f9; border-top: 5px solid #ff2e6c; border-radius: 4px; padding: 11px 13px; display: flex; flex-direction: column; }
+  .fc .ft { font-weight: 700; font-size: 13.5px; }
+  .fc .solves { color: #fff; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 12px; display: inline-block; margin: 5px 0 7px; }
+  .fc .tx { font-size: 11.5px; color: #565b67; line-height: 1.45; }
+  .fc .tx b { color: #2b2f3a; }
+  .fc.signature { background: linear-gradient(180deg,#fff6fb,#fff); border-top-color: #ff2e6c; box-shadow: 0 0 0 1px #ffd6e6 inset; }
+  .sigtag { font-size: 9.5px; font-weight: 800; letter-spacing: .5px; color:#ff2e6c; }
+  .map { font-size: 12px; color: #565b67; margin-top: 12px; background:#f6f6f8; padding:10px 14px; border-radius:5px; }
   .map b { color: #2b2f3a; }
 
   /* flowchart */
   .layer-label { font-size: 10px; font-weight: 800; letter-spacing: .7px; color: #9a9ca5; margin: 0 0 4px 2px; }
-  .fbox { border-radius: 5px; padding: 11px 15px; }
+  .fbox { border-radius: 5px; padding: 10px 15px; }
   .fbox .t { font-weight: 700; font-size: 13px; }
   .fbox .d { font-size: 12px; color: #565b67; margin-top: 3px; line-height: 1.45; }
   .arrow-c { text-align: center; color: #c2c4cc; font-size: 13px; line-height: 1; }
-  .fan { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; flex: 1; }
-  .pipe { background: #f7f7f9; border-radius: 4px; border-top: 5px solid #ff2e6c; padding: 10px 11px; display: flex; flex-direction: column; }
-  .pipe .pt { font-weight: 700; font-size: 12.5px; text-align: center; }
-  .pipe .badge { color: #fff; font-size: 10px; font-weight: 700; text-align: center; padding: 4px 4px; border-radius: 4px; margin: 7px 0; }
-  .pipe .pd { font-size: 10.5px; color: #565b67; line-height: 1.42; }
-  .datal { background: #eef4ff; border-radius: 5px; padding: 13px 15px; }
+  .fan { display: grid; grid-template-columns: repeat(6,1fr); gap: 9px; flex: 1; }
+  .pipe { background: #f7f7f9; border-radius: 4px; border-top: 4px solid #ff2e6c; padding: 9px 9px; display: flex; flex-direction: column; }
+  .pipe .pt { font-weight: 700; font-size: 11.5px; text-align: center; }
+  .pipe .badge { color: #fff; font-size: 9px; font-weight: 700; text-align: center; padding: 3px 3px; border-radius: 4px; margin: 6px 0; }
+  .pipe .pd { font-size: 9.5px; color: #565b67; line-height: 1.36; }
+  .datal { background: #eef4ff; border-radius: 5px; padding: 12px 15px; }
   .datal .grid4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
   .datal .di b { font-size: 12px; } .datal .di span { font-size: 11px; color: #61656f; display: block; margin-top:2px; }
 
   /* prototype slide */
-  .protorow { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; flex: 1; min-height: 0; }
+  .protorow { display: grid; grid-template-columns: 1.05fr 1fr; gap: 20px; flex: 1; min-height: 0; }
   .flow-list { list-style: none; display: flex; flex-direction: column; justify-content: space-around; height: 100%; }
-  .flow-list li { font-size: 11.5px; line-height: 1.4; padding: 6px 0; border-bottom: 1px dashed #e6e6ea; }
+  .flow-list li { font-size: 11px; line-height: 1.4; padding: 5px 0; border-bottom: 1px dashed #e6e6ea; }
   .flow-list li:last-child { border-bottom: none; }
   .flow-list .fname { font-weight: 700; }
   .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; height: 100%; min-height: 0; }
@@ -104,40 +103,43 @@
   .mstat .tag { background: #ededf1; font-size: 11.5px; font-weight: 700; text-align: center; padding: 6px; border-radius: 4px; margin-top: 8px; }
   .mbot { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; flex: 1; min-height: 0; margin-top: 10px; }
   .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; min-height: 0; }
-  .chart { text-align: center; display: flex; flex-direction: column; }
-  .chart .ct { font-size: 12px; font-weight: 700; margin-bottom: 6px; }
-  .bars { display: flex; align-items: flex-end; justify-content: center; gap: 26px; flex: 1; border-bottom: 2px solid #d6d6dc; padding-bottom: 0; }
-  .bar { width: 54px; position: relative; }
-  .bar .v { position: absolute; top: -16px; width: 100%; text-align: center; font-size: 11px; font-weight: 700; }
+  .chart { text-align: center; }
+  .chart .ct { font-size: 10.5px; font-weight: 700; margin-bottom: 4px; }
+  .bars { display: flex; align-items: flex-end; justify-content: center; gap: 22px; height: 70px; border-bottom: 1px solid #d6d6dc; }
+  .bar { width: 44px; position: relative; }
+  .bar .v { position: absolute; top: -13px; width: 100%; text-align: center; font-size: 9.5px; font-weight: 700; }
   .bar.before { background: #c4c6cd; }
   .bar.after { background: linear-gradient(180deg,#ff3f6c,#ff2e6c); }
-  .bar-x { display: flex; justify-content: center; gap: 26px; font-size: 10px; color: #8a8d96; margin-top: 4px; }
-  .bar-x span { width: 54px; text-align: center; }
-  .impact { background: #effaf5; border-left: 5px solid #06a17e; border-radius: 5px; padding: 13px 16px; margin-top: 12px; }
-  .impact .it { font-family: Georgia, serif; font-weight: 700; font-size: 16px; }
-  .impact .id { font-size: 12px; color: #4a4f59; margin-top: 4px; line-height:1.5; }
+  .bar-x { display: flex; justify-content: center; gap: 22px; font-size: 8.5px; color: #8a8d96; margin-top: 3px; }
+  .bar-x span { width: 44px; text-align: center; }
+  .impact { background: #effaf5; border-left: 5px solid #06a17e; border-radius: 5px; padding: 9px 14px; margin-top: 8px; }
+  .impact .it { font-family: Georgia, serif; font-weight: 700; font-size: 13.5px; }
+  .impact .id { font-size: 10px; color: #4a4f59; margin-top: 2px; line-height: 1.4; }
+  .kpi td, .kpi th { padding: 6px 11px; font-size: 11.5px; }
+  .mstat.compact { padding: 11px 14px; }
+  .mstat.compact .n { font-size: 32px; } .mstat.compact .d { font-size: 11px; line-height: 1.38; }
 
   /* risks */
-  .risks { display: grid; grid-template-columns: repeat(3,1fr); gap: 15px; flex: 1; }
-  .risk { background: #f7f7f9; border-top: 5px solid #e23; border-radius: 4px; padding: 13px 15px; display: flex; flex-direction: column; }
-  .risk .rh { display: flex; align-items: center; gap: 7px; }
-  .risk .rname { font-family: Georgia, serif; font-weight: 700; font-size: 16px; }
-  .risk .sev { margin-left: auto; color: #fff; font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 4px; }
-  .risk .lbl { font-size: 9.5px; font-weight: 800; letter-spacing: .5px; margin-top: 9px; }
-  .risk .rt { font-size: 11.5px; color: #565b67; line-height: 1.46; margin-top: 2px; }
+  .risks { display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: 1fr 1fr; gap: 13px; flex: 1; }
+  .risk { background: #f7f7f9; border-top: 5px solid #e23; border-radius: 4px; padding: 11px 13px; display: flex; flex-direction: column; }
+  .risk .rh { display: flex; align-items: center; gap: 6px; }
+  .risk .rname { font-family: Georgia, serif; font-weight: 700; font-size: 15px; }
+  .risk .sev { margin-left: auto; color: #fff; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 12px; }
+  .risk .lbl { font-size: 9px; font-weight: 800; letter-spacing: .5px; margin-top: 8px; }
+  .risk .rt { font-size: 10px; color: #565b67; line-height: 1.4; margin-top: 1px; }
 
   /* cover */
-  .cover { background: #2b303b; color: #fff; height: 7.5in; width: 13.333in; padding: 0; position: relative; page-break-after: always; overflow: hidden; }
-  .cover .topbar { background: linear-gradient(90deg,#ff2e6c,#ff7a3d); height: 10px; }
-  .cover .inner { padding: 1.5in 0.9in 0; }
-  .cover h1 { font-family: Georgia, serif; font-size: 60px; font-weight: 700; line-height: 1.08; }
-  .cover .tag { color: #c7cad2; font-size: 17px; line-height: 1.6; margin-top: 18px; max-width: 9.2in; }
-  .cover .rule { width: 2in; height: 5px; background: #ff2e6c; margin: 24px 0; }
-  .cover .name { font-family: Georgia, serif; font-size: 27px; font-weight: 700; }
-  .cover .roll { color: #c7cad2; font-size: 15px; margin-top: 4px; }
-  .cover .live { margin-top: 22px; display: inline-flex; align-items: center; gap: 9px; background: rgba(255,46,108,.18); border: 1px solid rgba(255,46,108,.5); padding: 11px 18px; border-radius: 26px; font-size: 15px; font-weight: 700; }
-  .cover .live a { color: #ff8fb0; text-decoration: none; }
-  .cover .foot { position: absolute; bottom: 0.5in; left: 0.9in; right: 0.9in; display: flex; justify-content: space-between; color: #8a8e99; font-size: 13px; }
+  .cover { background: #2b303b; color: #fff; height: 7.5in; padding: 0; position: relative; page-break-after: always; overflow: hidden; }
+  .cover .topbar { background: linear-gradient(90deg,#ff2e6c,#ff7a3d); height: 9px; }
+  .cover .inner { padding: 1.55in 0.9in 0; }
+  .cover h1 { font-family: Georgia, serif; font-size: 58px; font-weight: 700; line-height: 1.08; }
+  .cover .tag { color: #c7cad2; font-size: 16px; line-height: 1.6; margin-top: 18px; max-width: 9in; }
+  .cover .rule { width: 2in; height: 4px; background: #ff2e6c; margin: 24px 0; }
+  .cover .name { font-family: Georgia, serif; font-size: 26px; font-weight: 700; }
+  .cover .roll { color: #c7cad2; font-size: 14px; margin-top: 4px; }
+  .cover .live { margin-top: 20px; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,46,108,.18); border: 1px solid rgba(255,46,108,.5); padding: 9px 16px; border-radius: 24px; font-size: 14px; font-weight: 700; }
+  .cover .live a { color: #ff7aa3; text-decoration: none; }
+  .cover .foot2 { position: absolute; bottom: 0.5in; left: 0.9in; right: 0.9in; display: flex; justify-content: space-between; color: #8a8e99; font-size: 12px; }
 </style>
 </head>
 <body>
@@ -147,215 +149,219 @@
   <div class="topbar"></div>
   <div class="inner">
     <h1>Reimagining Myntra<br/>with Generative AI</h1>
-    <div class="tag">Myntra StyleGenie — an AI-native styling intelligence layer that transforms fashion discovery from passive browsing into personalised, intent-driven experiences.</div>
+    <div class="tag">Myntra StyleGenie, an AI native styling intelligence layer that turns fashion discovery from passive browsing into a personalised, intent first experience.</div>
     <div class="rule"></div>
     <div class="name">Akshat Singh</div>
     <div class="roll">Enrollment No: 23113019</div>
     <div class="live">🔗 Live prototype: <a href="https://style-genie-myntra.vercel.app/">style-genie-myntra.vercel.app</a></div>
   </div>
-  <div class="foot"><span>Open Project 2026 &nbsp;•&nbsp; Society of Business &nbsp;•&nbsp; Doremon Den</span><span>June 2026</span></div>
+  <div class="foot2"><span>Open Project 2026 &nbsp;•&nbsp; Society of Business &nbsp;•&nbsp; Doremon Den</span><span>June 2026</span></div>
 </section>
 
 <!-- 01 PROBLEM -->
 <section class="slide">
   <div class="topbar"></div>
-  <div class="head"><div class="secno">01</div><h1 class="title">The Problem: Fashion E-Commerce is Broken</h1></div>
-  <div class="intro">Myntra serves <b>50M+ monthly active users</b> across India with <b>9 lakh+ products</b> from 5,000+ brands. Yet at that scale the platform leaks money through fundamental UX inefficiencies that cost <b>over ₹2,000 Cr a year in returns alone</b>. The root cause is structural: users are forced to navigate an enormous catalog through keyword search and static filters — tools designed for the desktop era, not for how people actually think about fashion (by occasion, by vibe, by who they want to look like).</div>
-  <div class="fill">
-    <div class="stats">
-      <div class="stat" style="border-top-color:#e23"><div class="n" style="color:#e23">70%</div><div class="h">Cart Abandonment</div><div class="d">Users add items but can't commit. Choice overload creates decision paralysis — the average shopper browses 40+ products before a single purchase, and most never check out.</div></div>
-      <div class="stat" style="border-top-color:#ff2e6c"><div class="n" style="color:#ff2e6c">35%</div><div class="h">Return Rate</div><div class="d">Fashion has the highest return rate in e-commerce. The #1 driver is fit &amp; style mismatch — shoppers can't try clothes on, and static size charts ignore brand and fabric variation.</div></div>
-      <div class="stat" style="border-top-color:#2f6bff"><div class="n" style="color:#2f6bff">3.2 min</div><div class="h">Time to Find</div><div class="d">Average time to surface one relevant product. Users scroll page after page of irrelevant results because search reads keywords, not intent, occasion or context.</div></div>
-      <div class="stat" style="border-top-color:#2b2f3a"><div class="n" style="color:#2b2f3a">₹2,100 Cr</div><div class="h">Annual Return Cost</div><div class="d">Reverse logistics, restocking, customer service and damaged goods. This is pure cost that generates zero revenue — and it scales directly with GMV.</div></div>
-    </div>
-    <div class="subhead">Who is affected? — Four User Segments</div>
-    <div class="segs">
-      <div class="seg" style="border-left-color:#7b2ff7"><div class="h">The Browser — 62% of DAU</div><div class="d">Scrolls endlessly, rarely converts. Doesn't want more filters — wants curated discovery that does the editing for them.</div></div>
-      <div class="seg" style="border-left-color:#ff2e6c"><div class="h">The Returner — 31% return rate</div><div class="d">Buys 5, keeps 1. Fit and style mismatch is the core pain. Needs trustworthy fit intelligence before they hit "buy".</div></div>
-      <div class="seg" style="border-left-color:#06a17e"><div class="h">The Occasion Shopper — high AOV</div><div class="d">Needs a complete outfit for a wedding, party or fest and has no idea where to start. Needs intent-based, head-to-toe curation.</div></div>
-      <div class="seg" style="border-left-color:#2f6bff"><div class="h">The Trend Chaser — age 18–28</div><div class="d">Wants the celebrity / influencer look at their own budget. Needs visual search and trend matching, not a keyword box.</div></div>
-    </div>
-    <div class="banner"><b>Hypothesis:</b> a Generative AI styling layer can reduce returns by 25%, lift conversion by 18%, and raise AOV by 22% — creating <b>₹1,200–1,700 Cr in annual impact</b> without re-platforming the app.</div>
+  <div class="head"><div class="secno">01</div><h1 class="title">The Problem: Fashion E Commerce is Broken</h1></div>
+  <div class="intro">Myntra serves <b>50M+ monthly active users</b><sup><a href="https://www.statista.com/topics/8709/myntra/">3</a></sup> across India, offering <b>9 lakh+ products</b> from 5,000+ brands. Despite this scale, the platform leaks money through fundamental UX inefficiencies that cost <b>over ₹2,000 Cr a year</b> in returns alone. The root cause is structural: users navigate an enormous catalogue through keyword search and static filters, tools built for the desktop era, not for how people actually think about fashion.</div>
+  <div class="stats">
+    <div class="stat" style="border-top-color:#e23"><div class="n" style="color:#e23">70%<sup><a href="https://baymard.com/lists/cart-abandonment-rate">1</a></sup></div><div class="h">Cart Abandonment</div><div class="d">Users add items but cannot decide. Choice overload creates decision paralysis. The average shopper browses 40+ products before a single purchase.</div></div>
+    <div class="stat" style="border-top-color:#ff2e6c"><div class="n" style="color:#ff2e6c">35%<sup><a href="https://redseer.com/">2</a></sup></div><div class="h">Return Rate</div><div class="d">Fashion has the highest return rate in e commerce. The primary driver is fit and style mismatch, because shoppers cannot try on and size charts are unreliable.</div></div>
+    <div class="stat" style="border-top-color:#2f6bff"><div class="n" style="color:#2f6bff">3.2 min<sup><a href="https://baymard.com/blog">1</a></sup></div><div class="h">Time to Find</div><div class="d">Average time to surface one relevant product. Users scroll past pages of irrelevant results because search reads keywords, not intent or context.</div></div>
+    <div class="stat" style="border-top-color:#2b2f3a"><div class="n" style="color:#2b2f3a">₹2,100 Cr<sup><a href="https://www.mckinsey.com/industries/retail/our-insights/state-of-fashion">4</a></sup></div><div class="h">Annual Return Cost</div><div class="d">Reverse logistics, restocking, customer service and damaged goods. This is pure cost that generates zero revenue and scales directly with GMV.</div></div>
   </div>
-  <div class="foot"><div class="src">Sources: Myntra FY24 Annual Report (GMV &amp; MAU); RedSeer, "Fashion E-commerce Returns in India, 2024"; Baymard Institute, "Cart Abandonment Statistics, 2024".</div><div class="pg">1 / 8</div></div>
+  <div class="subhead">Who is affected? Four user segments</div>
+  <div class="segs">
+    <div class="seg" style="border-left-color:#7b2ff7"><div class="h">The Browser (62% of DAU)</div><div class="d">Scrolls endlessly, rarely converts. Wants curated discovery that does the editing for them.</div></div>
+    <div class="seg" style="border-left-color:#ff2e6c"><div class="h">The Returner (31% return rate)</div><div class="d">Buys five, keeps one. Fit and style mismatch is the core pain. Needs trustworthy fit intelligence.</div></div>
+    <div class="seg" style="border-left-color:#06a17e"><div class="h">The Occasion Shopper (high AOV)</div><div class="d">Needs a complete outfit for a wedding, party or fest, with no idea where to start. Needs intent based curation.</div></div>
+    <div class="seg" style="border-left-color:#2f6bff"><div class="h">The Trend Chaser (age 18 to 28)</div><div class="d">Wants celebrity and influencer looks at their own budget. Needs visual search and trend matching.</div></div>
+  </div>
+  <div class="banner"><b>Hypothesis:</b> a Generative AI styling layer can reduce returns by 25%, lift conversion by 18% and raise AOV by 22%, creating <b>₹1,200 to 1,700 Cr in annual impact</b> without re platforming the app.</div>
+  <div class="fill"></div>
+  <div class="foot">
+    <div class="refs"><b>References:</b> <a href="https://baymard.com/lists/cart-abandonment-rate">1 Baymard Institute, Cart Abandonment Rate Statistics 2024</a> · <a href="https://redseer.com/">2 RedSeer, Fashion E commerce Returns in India 2024</a> · <a href="https://www.statista.com/topics/8709/myntra/">3 Statista, Myntra Revenue and User Metrics FY24</a> · <a href="https://www.mckinsey.com/industries/retail/our-insights/state-of-fashion">4 McKinsey, The State of Fashion 2024</a></div>
+    <div class="pg">1 / 8</div>
+  </div>
 </section>
 
 <!-- 02 WHY GENAI -->
 <section class="slide">
   <div class="topbar"></div>
   <div class="head"><div class="secno">02</div><h1 class="title">Why Generative AI? Traditional Approaches Have Hit a Ceiling</h1></div>
-  <div class="intro">Myntra already runs predictive ML — collaborative filtering and content-based recommendations. These handle simple cases but <b>fundamentally cannot</b> solve the problems above, because they predict from the past rather than understand the present request. The table below pairs a real user need with the traditional approach, why it breaks, and the categorically new capability GenAI unlocks.</div>
-  <div class="fill">
-    <div class="grow">
-      <table>
-        <tr><th style="width:18%">User Problem</th><th style="width:16%">Traditional ML</th><th style="width:22%">Why It Fails</th><th style="width:17%">GenAI Solution</th><th>How It Works</th></tr>
-        <tr><td>"Outfit for a college fest under ₹2K"</td><td>Keyword search + price filter</td><td class="fail">Can't understand occasion, vibe or styling context — it only matches the literal words typed.</td><td class="sol">LLM conversational search</td><td>The LLM parses intent (occasion + budget + style) in one shot, retrieves candidates via vector embeddings, then composes complete outfits.</td></tr>
-        <tr><td>"Find me something like what Alia wore"</td><td>Text-based image tags</td><td class="fail">Manual tagging can't capture an aesthetic — "boho vibes" or "old-money" simply have no tag in the catalog.</td><td class="sol">CLIP multimodal visual search</td><td>CLIP encodes the image and catalog into one shared space, then returns the visually closest products — no tags required.</td></tr>
-        <tr><td>"Will this actually fit me?"</td><td>Static size-chart lookup</td><td class="fail">A lookup table ignores brand variation, fabric stretch, body diversity and the user's own purchase history.</td><td class="sol">NLP review mining + body profile</td><td>Mines 10K+ free-text reviews for fit signals ("runs slim"), then cross-references the user's body data to recommend a size.</td></tr>
-        <tr><td>"Style this kurta into a complete look"</td><td>"Frequently bought together"</td><td class="fail">Co-purchase data ≠ styling. It has no sense of colour harmony, occasion or aesthetic coherence.</td><td class="sol">Generative outfit composition</td><td>The LLM applies styling rules (colour theory, occasion) to generate full, coordinated outfits from real in-stock products.</td></tr>
-        <tr><td>"What should I wear this week?"</td><td>"Trending" product list</td><td class="fail">Everyone sees the same trending list. There is zero personalisation to an individual's evolving taste.</td><td class="sol">AI trend digest + style graph</td><td>The LLM writes trend narratives and curates them against the user's personal style graph, refreshed daily.</td></tr>
-      </table>
-    </div>
-    <div class="keybox"><b>Key Insight —</b> Traditional ML predicts what you might <i>click</i> next; Generative AI understands what you actually <i>need</i>. That is the difference between a search engine and a personal stylist. These are not incremental gains — they are categorically new capabilities, enabled by LLMs for language, multimodal models for vision, and generative composition for styling.</div>
+  <div class="intro">Myntra already runs predictive ML such as collaborative filtering and content based recommendations. These handle simple cases but fundamentally cannot solve the problems above, because they predict from the past rather than understand the present request. The table below pairs a real user need with the traditional approach, why it breaks, and the categorically new capability GenAI unlocks.</div>
+  <div class="grow">
+  <table>
+    <tr><th style="width:18%">User Problem</th><th style="width:16%">Traditional ML</th><th style="width:22%">Why It Fails</th><th style="width:17%">GenAI Solution</th><th>How It Works</th></tr>
+    <tr><td>"Outfit for a college fest under ₹2K"</td><td>Keyword search plus price filter</td><td class="fail">Cannot understand occasion, vibe or styling context. It only matches literal words.</td><td class="sol">LLM conversational search</td><td>The LLM parses intent (occasion plus budget plus style), retrieves candidates via vector embeddings, then composes complete outfits.</td></tr>
+    <tr><td>"Find me something like what Alia wore"</td><td>Text based image tags</td><td class="fail">Manual tagging cannot capture aesthetic. "Boho vibes" has no tag.</td><td class="sol">CLIP<sup><a href="https://openai.com/index/clip/">1</a></sup> multimodal visual search</td><td>CLIP encodes the image and catalogue into one shared space and finds the visually similar products.</td></tr>
+    <tr><td>"Will this actually fit me?"</td><td>Static size chart lookup</td><td class="fail">A lookup table ignores brand variation, fabric stretch, body diversity and the user's purchase history.</td><td class="sol">NLP review mining plus body profile</td><td>Mines 10K+ free text reviews for fit signals ("runs slim"), then cross references the user's body data to recommend a size.</td></tr>
+    <tr><td>"Style this kurta into a complete look"</td><td>"Frequently bought together"</td><td class="fail">Co purchase is not styling. There is no sense of colour harmony, occasion or aesthetic coherence.</td><td class="sol">Generative outfit composition</td><td>The LLM applies styling rules to generate occasion specific, colour coordinated outfits from real in stock products.</td></tr>
+    <tr><td>"What should I wear this week?"</td><td>"Trending" product list</td><td class="fail">Everyone sees the same trending list. There is no personalisation to the individual.</td><td class="sol">AI trend digest plus style graph</td><td>The LLM writes trend narratives and curates them against the user's evolving style profile.<sup><a href="https://arxiv.org/abs/2005.11401">2</a></sup></td></tr>
+  </table>
   </div>
-  <div class="foot"><div class="src">Sources: OpenAI CLIP (Radford et al., 2021); "Retrieval-Augmented Generation for Knowledge-Intensive NLP" (Lewis et al., 2020); Myntra Engineering Blog, "Search &amp; Discovery Architecture".</div><div class="pg">2 / 8</div></div>
+  <div class="keybox"><b>Key Insight:</b> traditional ML predicts what you might click next. Generative AI understands what you actually need. That is the difference between a search engine and a personal stylist. These are not incremental gains. They are categorically new capabilities enabled by LLMs for language, multimodal models for vision, and generative composition for styling.</div>
+  <div class="foot">
+    <div class="refs"><b>References:</b> <a href="https://openai.com/index/clip/">1 Radford et al., Learning Transferable Visual Models (OpenAI CLIP), 2021</a> · <a href="https://arxiv.org/abs/2005.11401">2 Lewis et al., Retrieval Augmented Generation, 2020</a> · <a href="https://tech.myntra.com/">3 Myntra Engineering, Search and Discovery Architecture</a></div>
+    <div class="pg">2 / 8</div>
+  </div>
 </section>
 
 <!-- 03 APPROACH & SOLUTION -->
 <section class="slide">
   <div class="topbar"></div>
-  <div class="head"><div class="secno">03</div><h1 class="title">My Approach &amp; the StyleGenie Solution</h1></div>
-  <div class="fill">
-    <div class="subhead" style="margin-top:0">My approach: from problem to solution</div>
-    <div class="steps">
-      <div class="step" style="border-left-color:#2f6bff"><span class="sn" style="color:#2f6bff">01</span><span class="st">DIAGNOSE</span><div class="sd">Studied four root pains — choice overload (40+ browses), fit uncertainty (35% returns), context blindness, and the manual browse-filter-scroll loop.</div></div>
-      <div class="step" style="border-left-color:#7b2ff7"><span class="sn" style="color:#7b2ff7">02</span><span class="st">REFRAME</span><div class="sd">Shifted the paradigm from inventory-first ("browse 9 lakh products") to intent-first ("help me look great at a wedding under ₹5K").</div></div>
-      <div class="step" style="border-left-color:#ff2e6c"><span class="sn" style="color:#ff2e6c">03</span><span class="st">DESIGN</span><div class="sd">Mapped each user segment + pain to exactly one GenAI capability, so every feature solves one root pain with no overlap or redundancy.</div></div>
-      <div class="step" style="border-left-color:#06a17e"><span class="sn" style="color:#06a17e">04</span><span class="st">VALIDATE</span><div class="sd">Anchored every feature to a measurable KPI — return rate, conversion, AOV, DAU. No feature ships without a number it must move.</div></div>
-    </div>
-    <div class="subhead">The solution: 5 GenAI features (each mapped to a user pain)</div>
-    <div class="feats">
-      <div class="fc" style="border-top-color:#ff2e6c"><div class="ft" style="color:#ff2e6c">💬 StyleGenie Chat</div><div class="sub">AI Concierge</div><span class="solves" style="background:#ff2e6c">Solves: Choice overload</span><div class="lbl">WHAT</div><div class="tx">A conversational stylist that understands occasion, budget, body and style from plain language.</div><div class="lbl">HOW</div><div class="tx">LLM + RAG: intent parse → vector search → outfit compose → streamed reply.</div><div class="lbl">VALUE</div><div class="val">40 products → 5 looks. 12% chat-to-cart.</div></div>
-      <div class="fc" style="border-top-color:#7b2ff7"><div class="ft" style="color:#7b2ff7">📷 Visual Match</div><div class="sub">Snap &amp; Find</div><span class="solves" style="background:#7b2ff7">Solves: Style discovery</span><div class="lbl">WHAT</div><div class="tx">Upload any photo — a screenshot, a Pinterest save — and find visually similar Myntra products.</div><div class="lbl">HOW</div><div class="tx">CLIP encodes the image → cosine similarity vs catalog embeddings → ranked results.</div><div class="lbl">VALUE</div><div class="val">35% CTR vs 8% for keyword search.</div></div>
-      <div class="fc" style="border-top-color:#06a17e"><div class="ft" style="color:#06a17e">🪄 Outfit Studio</div><div class="sub">Composer</div><span class="solves" style="background:#06a17e">Solves: No outfit thinking</span><div class="lbl">WHAT</div><div class="tx">Pick one product and AI builds 3–5 complete styled outfits from real catalog items.</div><div class="lbl">HOW</div><div class="tx">Style-attribute encoding → LLM applies colour theory + occasion rules + composition.</div><div class="lbl">VALUE</div><div class="val">+1.8 items/order. 22% AOV lift.</div></div>
-      <div class="fc" style="border-top-color:#ff7a3d"><div class="ft" style="color:#ff7a3d">🎯 FitGenius</div><div class="sub">Fit Predictor</div><span class="solves" style="background:#ff7a3d">Solves: Fit uncertainty</span><div class="lbl">WHAT</div><div class="tx">Predicts your perfect size at 90%+ confidence using review mining + your body profile.</div><div class="lbl">HOW</div><div class="tx">NLP extracts fit signals from 10K reviews → cross-refs your body data → size + evidence.</div><div class="lbl">VALUE</div><div class="val">Returns 32% → &lt;18%. ~₹525 Cr saved/yr.</div></div>
-      <div class="fc" style="border-top-color:#2f6bff"><div class="ft" style="color:#2f6bff">📈 TrendPulse</div><div class="sub">Trend Digest</div><span class="solves" style="background:#2f6bff">Solves: Static discovery</span><div class="lbl">WHAT</div><div class="tx">A personalised daily feed of AI-curated trend lookbooks tuned to your style.</div><div class="lbl">HOW</div><div class="tx">Social-signal monitor → LLM trend narratives → products matched to trend + style graph.</div><div class="lbl">VALUE</div><div class="val">+40% DAU from daily check-ins.</div></div>
-    </div>
-    <div class="map"><b>User segment → primary features:</b>&nbsp; Browser → Chat + TrendPulse &nbsp;·&nbsp; Returner → FitGenius + Outfit Studio &nbsp;·&nbsp; Occasion Shopper → Chat + Studio &nbsp;·&nbsp; Trend Chaser → Visual Match + TrendPulse</div>
+  <div class="head"><div class="secno">03</div><h1 class="title">My Approach and the StyleGenie Solution</h1></div>
+  <div class="subhead" style="margin-top:0">My approach: from problem to solution</div>
+  <div class="steps">
+    <div class="step" style="border-left-color:#2f6bff"><span class="sn" style="color:#2f6bff">01</span><span class="st">DIAGNOSE</span><div class="sd">Studied four root pains: choice overload, fit uncertainty, context blindness and a manual discovery loop.</div></div>
+    <div class="step" style="border-left-color:#7b2ff7"><span class="sn" style="color:#7b2ff7">02</span><span class="st">REFRAME</span><div class="sd">Shifted from inventory first ("browse 9 lakh products") to intent first ("look great at a wedding under ₹5K").</div></div>
+    <div class="step" style="border-left-color:#ff2e6c"><span class="sn" style="color:#ff2e6c">03</span><span class="st">DESIGN</span><div class="sd">Mapped each segment and pain to one specific GenAI capability, so every feature solves a real need with no overlap.</div></div>
+    <div class="step" style="border-left-color:#06a17e"><span class="sn" style="color:#06a17e">04</span><span class="st">VALIDATE</span><div class="sd">Anchored every feature to a measurable KPI: return rate, conversion, AOV and DAU. Nothing ships without a metric.</div></div>
   </div>
-  <div class="foot"><div class="src">Sources: CLIP — Radford et al. (OpenAI, 2021); RAG — Lewis et al. (Facebook AI, 2020); Myntra Category Report FY24.</div><div class="pg">3 / 8</div></div>
+  <div class="subhead">The solution: six GenAI features (five core, plus one signature)</div>
+  <div class="feats">
+    <div class="fc" style="border-top-color:#ff2e6c"><div class="ft" style="color:#ff2e6c">💬 StyleGenie Chat</div><span class="solves" style="background:#ff2e6c">Solves choice overload</span><div class="tx">A conversational stylist that reads occasion, budget and style from plain language. <b>LLM plus RAG: intent parse, vector search, compose, stream.</b> Cuts 40 products to 5 looks.</div></div>
+    <div class="fc" style="border-top-color:#7b2ff7"><div class="ft" style="color:#7b2ff7">📷 Visual Match</div><span class="solves" style="background:#7b2ff7">Solves style discovery</span><div class="tx">Upload a photo or screenshot and find visually similar Myntra products. <b>CLIP encodes the image, cosine similarity ranks the catalogue.</b> 35% CTR.</div></div>
+    <div class="fc" style="border-top-color:#06a17e"><div class="ft" style="color:#06a17e">🪄 Outfit Studio</div><span class="solves" style="background:#06a17e">Solves no outfit thinking</span><div class="tx">Pick one product and get 3 to 5 complete styled looks from real items. <b>Colour theory plus occasion rules.</b> Adds 1.8 items per order.</div></div>
+    <div class="fc" style="border-top-color:#ff7a3d"><div class="ft" style="color:#ff7a3d">🎯 FitGenius</div><span class="solves" style="background:#ff7a3d">Solves fit uncertainty</span><div class="tx">Predicts your size with 90%+ confidence using review mining and a body profile. <b>Evidence is shown.</b> Returns fall from 32% to under 18%.</div></div>
+    <div class="fc" style="border-top-color:#2f6bff"><div class="ft" style="color:#2f6bff">📈 TrendPulse</div><span class="solves" style="background:#2f6bff">Solves static discovery</span><div class="tx">A personalised daily feed of AI written trend lookbooks. <b>Social signal to narrative to style graph match.</b> Drives a 40% DAU lift.</div></div>
+    <div class="fc signature"><div class="ft" style="color:#ff2e6c">🧳 Capsule <span class="sigtag">✦ SIGNATURE</span></div><span class="solves" style="background:linear-gradient(135deg,#7b2ff7,#ff2e6c)">Solves value and basket size</span><div class="tx">Give a budget and the occasions you dress for; StyleGenie builds a tiny set of mix and match pieces and shows how many complete outfits they unlock. <b>Generative composition as budget optimisation.</b></div></div>
+  </div>
+  <div class="map"><b>Segment to feature:</b>&nbsp; Browser to Chat plus TrendPulse &nbsp;·&nbsp; Returner to FitGenius plus Studio &nbsp;·&nbsp; Occasion to Chat plus Capsule &nbsp;·&nbsp; Trend Chaser to Visual plus TrendPulse</div>
+  <div class="foot">
+    <div class="refs"><b>References:</b> <a href="https://openai.com/index/clip/">1 OpenAI CLIP, 2021</a> · <a href="https://arxiv.org/abs/2005.11401">2 RAG, Lewis et al., 2020</a> · <a href="https://www.bcg.com/capabilities/artificial-intelligence/generative-ai">3 BCG, GenAI in Retail (uplift benchmarks)</a></div>
+    <div class="pg">3 / 8</div>
+  </div>
 </section>
 
 <!-- 04 IMPLEMENTATION FLOWCHART -->
 <section class="slide">
   <div class="topbar"></div>
   <div class="head"><div class="secno">04</div><h1 class="title">Implementation Flowchart: How StyleGenie Actually Works</h1></div>
-  <div class="intro">End-to-end system flow — a user query travels through AI orchestration, into the right model pipeline, grounds itself against the shared data layer, and returns a personalised, cited response. Colour-coded by system layer.</div>
-  <div class="fill" style="justify-content: space-between;">
-    <div>
-      <div class="layer-label">① USER</div>
-      <div class="fbox" style="background:#f0f0f3"><span class="t">"Outfit for Diwali under ₹3K — traditional but modern"</span></div>
-    </div>
-    <div class="arrow-c">▼</div>
-    <div>
-      <div class="layer-label" style="color:#7b2ff7">② API GATEWAY + LLM ROUTER</div>
-      <div class="fbox" style="background:#f3eeff"><span class="t">Auth → Rate-limit → Intent Classifier (LLM)</span><span class="d">extracts &#123;occasion, budget, style, body&#125; from the message and dispatches it to the relevant pipeline(s).</span></div>
-    </div>
-    <div class="arrow-c">▼ &nbsp;&nbsp;&nbsp; ▼ &nbsp;&nbsp;&nbsp; ▼ &nbsp;&nbsp;&nbsp; ▼ &nbsp;&nbsp;&nbsp; ▼</div>
-    <div>
-      <div class="layer-label" style="color:#ff2e6c">③ AI PIPELINES</div>
-      <div class="fan">
-        <div class="pipe" style="border-top-color:#ff2e6c"><div class="pt" style="color:#ff2e6c">StyleGenie Chat</div><div class="badge" style="background:#ff2e6c">GPT-4o + RAG</div><div class="pd">Intent parse → vector search → outfit compose → stream the reply.</div></div>
-        <div class="pipe" style="border-top-color:#7b2ff7"><div class="pt" style="color:#7b2ff7">Visual Match</div><div class="badge" style="background:#7b2ff7">CLIP-ViT</div><div class="pd">Encode the image → cosine similarity → top-k catalog matches.</div></div>
-        <div class="pipe" style="border-top-color:#06a17e"><div class="pt" style="color:#06a17e">Outfit Studio</div><div class="badge" style="background:#06a17e">GPT-4o + Style Engine</div><div class="pd">Item attributes → colour theory → occasion rules → 5 outfits.</div></div>
-        <div class="pipe" style="border-top-color:#ff7a3d"><div class="pt" style="color:#ff7a3d">FitGenius</div><div class="badge" style="background:#ff7a3d">NLP Review Miner</div><div class="pd">Mine reviews → fit signals → cross-ref body → size prediction.</div></div>
-        <div class="pipe" style="border-top-color:#2f6bff"><div class="pt" style="color:#2f6bff">TrendPulse</div><div class="badge" style="background:#2f6bff">LLM + Trend Feed</div><div class="pd">Social signal → narrative generation → style-graph match.</div></div>
-      </div>
-    </div>
-    <div class="arrow-c">▼</div>
-    <div>
-      <div class="layer-label" style="color:#2f6bff">④ SHARED DATA LAYER &nbsp;— RAG grounding: the LLM only ever references live data, never invents it</div>
-      <div class="datal">
-        <div class="grid4">
-          <div class="di"><b>Pinecone Vector DB</b><span>9 lakh+ product embeddings</span></div>
-          <div class="di"><b>Product Catalog</b><span>SKUs, prices, live inventory</span></div>
-          <div class="di"><b>Review Corpus</b><span>10M+ reviews, fit-indexed</span></div>
-          <div class="di"><b>User Style Graph</b><span>per-user preference vectors</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="arrow-c">▼</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
-      <div class="fbox" style="background:#effaf5"><span class="t" style="color:#06a17e">⑤ RESPONSE SYNTHESIS</span><span class="d">Compose outfit cards • add fit-confidence scores • cite the review evidence • stream word-by-word.</span></div>
-      <div class="fbox" style="background:#fff0f6"><span class="t" style="color:#ff2e6c">⑥ USER SEES OUTPUT</span><span class="d">3–5 Diwali outfit cards with prices, fit confidence and one-tap "Add to Bag".</span></div>
+  <div class="intro" style="margin-bottom:8px">End to end system flow. A user query travels through AI orchestration, into the right model pipeline, grounds itself against the shared data layer, and returns a personalised, cited response. The diagram is colour coded by system layer.</div>
+  <div class="fill">
+  <div class="layer-label">① USER</div>
+  <div class="fbox" style="background:#f0f0f3"><span class="t">"Outfit for Diwali under ₹3K, traditional but modern"</span></div>
+  <div class="arrow-c">▼</div>
+  <div class="layer-label" style="color:#7b2ff7">② API GATEWAY plus LLM ROUTER</div>
+  <div class="fbox" style="background:#f3eeff"><span class="t">Auth, rate limit, then an LLM intent classifier</span><span class="d">extracts &#123;occasion, budget, style, body&#125; from the message and dispatches it to the relevant pipeline or pipelines.</span></div>
+  <div class="arrow-c">▼ &nbsp; ▼ &nbsp; ▼ &nbsp; ▼ &nbsp; ▼ &nbsp; ▼</div>
+  <div class="layer-label" style="color:#ff2e6c">③ AI PIPELINES</div>
+  <div class="fan">
+    <div class="pipe" style="border-top-color:#ff2e6c"><div class="pt" style="color:#ff2e6c">StyleGenie Chat</div><div class="badge" style="background:#ff2e6c">GPT-4o plus RAG</div><div class="pd">Intent parse, vector search, outfit compose, stream the reply.</div></div>
+    <div class="pipe" style="border-top-color:#7b2ff7"><div class="pt" style="color:#7b2ff7">Visual Match</div><div class="badge" style="background:#7b2ff7">CLIP ViT</div><div class="pd">Encode the image, cosine similarity, top k catalogue match.</div></div>
+    <div class="pipe" style="border-top-color:#06a17e"><div class="pt" style="color:#06a17e">Outfit Studio</div><div class="badge" style="background:#06a17e">GPT-4o plus Style Engine</div><div class="pd">Item attributes, colour theory, occasion rules, five outfits.</div></div>
+    <div class="pipe" style="border-top-color:#ff7a3d"><div class="pt" style="color:#ff7a3d">FitGenius</div><div class="badge" style="background:#ff7a3d">NLP Review Miner</div><div class="pd">Mine reviews, extract fit signals, cross reference body, size.</div></div>
+    <div class="pipe" style="border-top-color:#2f6bff"><div class="pt" style="color:#2f6bff">TrendPulse</div><div class="badge" style="background:#2f6bff">LLM plus Trend Feed</div><div class="pd">Social signal, narrative generation, style graph match.</div></div>
+    <div class="pipe" style="border-top-color:#9b59b6"><div class="pt" style="color:#9b59b6">Capsule</div><div class="badge" style="background:#9b59b6">Composer plus Optimiser</div><div class="pd">Maximise outfit combinations under a budget constraint.</div></div>
+  </div>
+  <div class="arrow-c">▼</div>
+  <div class="layer-label" style="color:#2f6bff">④ SHARED DATA LAYER &nbsp;(RAG grounding: the LLM only ever references live data, so it never invents a product)</div>
+  <div class="datal">
+    <div class="grid4">
+      <div class="di"><b>Pinecone Vector DB<sup><a href="https://www.pinecone.io/learn/vector-database/">2</a></sup></b><span>9 lakh+ product embeddings</span></div>
+      <div class="di"><b>Product Catalogue</b><span>SKUs, prices, live inventory</span></div>
+      <div class="di"><b>Review Corpus</b><span>10M+ reviews, fit indexed</span></div>
+      <div class="di"><b>User Style Graph</b><span>per user preference vectors</span></div>
     </div>
   </div>
-  <div class="foot"><div class="src">Sources: "Attention Is All You Need" (Vaswani et al., 2017); Pinecone Vector DB Architecture; OpenAI Function-Calling Docs; Google Gemini API Reference; Anthropic RAG Pattern Guide.</div><div class="pg">4 / 8</div></div>
+  <div class="arrow-c">▼</div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+    <div class="fbox" style="background:#effaf5"><span class="t" style="color:#06a17e">⑤ RESPONSE SYNTHESIS</span><span class="d">Compose outfit cards, add fit confidence scores, cite the review evidence, stream word by word.</span></div>
+    <div class="fbox" style="background:#fff0f6"><span class="t" style="color:#ff2e6c">⑥ USER SEES OUTPUT</span><span class="d">3 to 5 Diwali outfit cards with prices, fit confidence and one tap "Add to Bag".</span></div>
+  </div>
+  </div>
+  <div class="foot">
+    <div class="refs"><b>References:</b> <a href="https://arxiv.org/abs/1706.03762">1 Vaswani et al., Attention Is All You Need, 2017</a> · <a href="https://www.pinecone.io/learn/vector-database/">2 Pinecone, Vector Database Architecture</a> · <a href="https://arxiv.org/abs/2005.11401">3 Lewis et al., RAG, 2020</a></div>
+    <div class="pg">4 / 8</div>
+  </div>
 </section>
 
 <!-- 05 LIVE PROTOTYPE -->
 <section class="slide">
   <div class="topbar"></div>
   <div class="head"><div class="secno">05</div><h1 class="title">The Live Prototype: How Each Feature Works In the App</h1></div>
-  <div class="intro">A working React prototype, rebuilt in Myntra's UI, with all five GenAI features fully interactive and deployed live. Below is the <b>real in-app interaction</b> for each feature — what the user taps and what appears on screen — next to screenshots captured from the running app.</div>
-  <div class="fill">
-    <div class="protorow">
-      <ul class="flow-list">
-        <li><span class="fname" style="color:#ff2e6c">💬 StyleGenie Chat —</span> tap the floating <b>"✨ Ask StyleGenie"</b> button → type <i>"festive look under 3k for women"</i> → your request appears as <b>intent chips</b> (festive · ≤₹3,000 · women) → <b>5 outfit cards stream in</b> → tap any card to open its product page.</li>
-        <li><span class="fname" style="color:#7b2ff7">📷 Visual Match —</span> tap the <b>📷 in the search bar</b> → upload an image or pick a sample vibe → an <b>"encoding with CLIP…"</b> animation runs → a grid of products appears with <b>% match scores</b>, ranked by similarity.</li>
-        <li><span class="fname" style="color:#06a17e">🪄 Outfit Studio —</span> on any product page tap <b>"Generate complete looks"</b> → <b>3–5 styled looks</b> appear (top + bottom + footwear + accessory), each with a price total and occasion label → <b>"Add complete look to bag"</b> adds every item at once.</li>
-        <li><span class="fname" style="color:#ff7a3d">🎯 FitGenius —</span> on a product page, enter height / weight / usual size / build → tap <b>"Find my size"</b> → your size is shown with a <b>confidence bar and review evidence</b> ("runs slim — we sized up").</li>
-        <li><span class="fname" style="color:#2f6bff">📈 TrendPulse —</span> open the <b>TrendPulse</b> tab → scroll <b>AI-written trend cards</b> (e.g. "Quiet Luxury"), each carrying a curated product row tuned to your style.</li>
-      </ul>
-      <div class="shots">
-        <div class="shot"><img src="__IMG_CHAT__"/><div class="cap">StyleGenie Chat — intent chips + streamed cards</div></div>
-        <div class="shot"><img src="__IMG_PDP__"/><div class="cap">Product page — FitGenius + Outfit Studio inline</div></div>
-        <div class="shot"><img src="__IMG_VISUAL__"/><div class="cap">Visual Match — CLIP-style image search</div></div>
-        <div class="shot"><img src="__IMG_TRENDS__"/><div class="cap">TrendPulse — AI trend narratives</div></div>
-      </div>
+  <div class="intro" style="margin-bottom:10px">A working React prototype rebuilt in Myntra's UI, with all six GenAI features interactive. Below is the real in app interaction for each, what the user taps and what appears on screen, beside screenshots from the running app.</div>
+  <div class="protorow">
+    <ul class="flow-list">
+      <li><span class="fname" style="color:#ff2e6c">💬 StyleGenie Chat:</span> tap the floating "Ask StyleGenie" button, type "festive look under 3k for women", the request appears as intent chips, then five outfit cards stream in.</li>
+      <li><span class="fname" style="color:#7b2ff7">📷 Visual Match:</span> tap the camera in the search bar, upload an image or pick a vibe, watch the "encoding with CLIP" animation, then browse products with match scores.</li>
+      <li><span class="fname" style="color:#06a17e">🪄 Outfit Studio:</span> on any product page tap "Generate complete looks" to get 3 to 5 styled looks, each with a price total, then "Add complete look to bag".</li>
+      <li><span class="fname" style="color:#ff7a3d">🎯 FitGenius:</span> enter height, weight, usual size and build, tap "Find my size", and your size is shown with a confidence bar and review evidence.</li>
+      <li><span class="fname" style="color:#2f6bff">📈 TrendPulse:</span> open the TrendPulse tab and scroll AI written trend cards, each with a curated product row tuned to your style.</li>
+      <li><span class="fname" style="color:#9b59b6">🧳 Capsule (signature):</span> set a budget and occasions, and StyleGenie returns a small wardrobe plus the number of complete outfits it unlocks.</li>
+    </ul>
+    <div class="shots">
+      <div class="shot"><img src="__IMG_CHAT__"/><div class="cap">StyleGenie Chat: intent chips and streamed cards</div></div>
+      <div class="shot"><img src="__IMG_CAPSULE__"/><div class="cap">Capsule: 8 pieces unlock about 10 outfits</div></div>
+      <div class="shot"><img src="__IMG_PDP__"/><div class="cap">Product page: FitGenius and Outfit Studio inline</div></div>
+      <div class="shot"><img src="__IMG_VISUAL__"/><div class="cap">Visual Match: CLIP style image search</div></div>
     </div>
-    <div class="links"><b>🔗 Live:</b> <code>https://style-genie-myntra.vercel.app/</code> — append deep links <code>#genie/festive%20look%20under%203k</code>, <code>#p/12</code>, <code>#visual</code>, <code>#trends</code> to jump straight to a feature. &nbsp;<b>Interaction model:</b> a floating concierge + inline AI cards — discoverable, never blocking the core flow. &nbsp;<b>Stack:</b> React + Vite; the demo's AI runs client-side and maps 1:1 to the production LLM + CLIP + RAG backend on slide 04.</div>
   </div>
-  <div class="foot"><div class="src">Built with React + Vite, deployed on Vercel. Verified: production build ✓, ESLint clean ✓, 23/23 AI-engine unit tests ✓.</div><div class="pg">5 / 8</div></div>
+  <div class="links"><b>Live prototype:</b> <code>https://style-genie-myntra.vercel.app/</code> &nbsp; Append a deep link to jump to a feature: <code>#genie/festive%20look%20under%203k</code>, <code>#p/12</code>, <code>#visual</code>, <code>#trends</code>, <code>#capsule</code>. <b>Stack:</b> React and Vite; the demo's AI runs client side and maps one to one onto the production backend in slide 04.</div>
+  <div class="foot">
+    <div class="refs"><b>Prototype:</b> built with React and Vite, deployed on Vercel. Verified: production build, ESLint clean, 23 of 23 AI engine unit tests pass.</div>
+    <div class="pg">5 / 8</div>
+  </div>
 </section>
 
 <!-- 06 METRICS -->
 <section class="slide">
   <div class="topbar"></div>
-  <div class="head"><div class="secno">06</div><h1 class="title">Success Metrics &amp; Projected Business Impact</h1></div>
-  <div class="intro">Every feature is anchored to a specific, measurable KPI tied to a business outcome. Projections are modelled on published benchmarks for AI-driven personalisation, applied to Myntra's FY24 scale.</div>
-  <div class="fill">
-    <div class="mstats">
-      <div class="mstat" style="border-top-color:#ff2e6c"><div class="n" style="color:#ff2e6c">25%</div><div class="h">Return Reduction</div><div class="d">FitGenius removes the #1 return driver — fit mismatch — by combining review mining with the user's body data before they buy.</div><div class="tag">₹525 Cr saved / yr</div></div>
-      <div class="mstat" style="border-top-color:#06a17e"><div class="n" style="color:#06a17e">18%</div><div class="h">Conversion Uplift</div><div class="d">StyleGenie compresses discovery from 40 items to 5 curated looks, dramatically shortening the path from intent to purchase.</div><div class="tag">Direct GMV lift</div></div>
-      <div class="mstat" style="border-top-color:#7b2ff7"><div class="n" style="color:#7b2ff7">22%</div><div class="h">AOV Increase</div><div class="d">Outfit Studio shifts buying from a single item to the complete look — an average of +1.8 items per order.</div><div class="tag">+₹340 / order</div></div>
-      <div class="mstat" style="border-top-color:#2f6bff"><div class="n" style="color:#2f6bff">2.4x</div><div class="h">Engagement</div><div class="d">TrendPulse builds a daily check-in habit — users return for AI-curated trends, not just to shop.</div><div class="tag">DAU / MAU ratio</div></div>
+  <div class="head"><div class="secno">06</div><h1 class="title">Success Metrics and Projected Business Impact</h1></div>
+  <div class="intro" style="margin-bottom:10px">Every feature is anchored to a measurable KPI. Projections use published benchmarks for AI driven personalisation at Myntra's FY24 scale.</div>
+  <div class="mstats">
+    <div class="mstat compact" style="border-top-color:#ff2e6c"><div class="n" style="color:#ff2e6c">25%<sup><a href="https://www.mckinsey.com/industries/retail/our-insights/state-of-fashion">1</a></sup></div><div class="h">Return Reduction</div><div class="d">FitGenius removes the leading return driver, fit mismatch, with review mining and body data.</div><div class="tag">₹525 Cr saved per year</div></div>
+    <div class="mstat compact" style="border-top-color:#06a17e"><div class="n" style="color:#06a17e">18%<sup><a href="https://www.bcg.com/capabilities/artificial-intelligence/generative-ai">2</a></sup></div><div class="h">Conversion Uplift</div><div class="d">StyleGenie compresses discovery from 40 items to 5 curated looks, shortening the path to purchase.</div><div class="tag">Direct GMV lift</div></div>
+    <div class="mstat compact" style="border-top-color:#7b2ff7"><div class="n" style="color:#7b2ff7">22%<sup><a href="https://www.bcg.com/capabilities/artificial-intelligence/generative-ai">2</a></sup></div><div class="h">AOV Increase</div><div class="d">Outfit Studio and Capsule shift buying from a single item to the complete look, about 1.8 more items per order.</div><div class="tag">+₹340 per order</div></div>
+    <div class="mstat compact" style="border-top-color:#2f6bff"><div class="n" style="color:#2f6bff">2.4x<sup><a href="https://www.statista.com/topics/8709/myntra/">3</a></sup></div><div class="h">Engagement</div><div class="d">TrendPulse builds a daily check in habit; users return for AI curated trends, not just to shop.</div><div class="tag">DAU to MAU ratio</div></div>
+  </div>
+  <div class="mbot">
+    <div>
+      <div class="subhead" style="font-size:14px; margin:0 0 8px">Projected Impact: Before vs After</div>
+      <div class="charts">
+        <div class="chart"><div class="ct">Return Rate (%)</div><div class="bars"><div class="bar before" style="height:70px"><span class="v">32</span></div><div class="bar after" style="height:39px"><span class="v">18</span></div></div><div class="bar-x"><span>Before</span><span>After</span></div></div>
+        <div class="chart"><div class="ct">Conversion Rate (%)</div><div class="bars"><div class="bar before" style="height:56px"><span class="v">4</span></div><div class="bar after" style="height:70px"><span class="v">5</span></div></div><div class="bar-x"><span>Before</span><span>After</span></div></div>
+        <div class="chart"><div class="ct">Avg. Order Value (₹)</div><div class="bars"><div class="bar before" style="height:57px"><span class="v">1,540</span></div><div class="bar after" style="height:70px"><span class="v">1,880</span></div></div><div class="bar-x"><span>Before</span><span>After</span></div></div>
+        <div class="chart"><div class="ct">Daily Active Users (M)</div><div class="bars"><div class="bar before" style="height:29px"><span class="v">8</span></div><div class="bar after" style="height:70px"><span class="v">19</span></div></div><div class="bar-x"><span>Before</span><span>After</span></div></div>
+      </div>
     </div>
-    <div class="mbot">
-      <div style="display:flex; flex-direction:column; min-height:0;">
-        <div class="subhead" style="font-size:15px; margin:0 0 8px">Projected Impact: Before vs After StyleGenie</div>
-        <div class="charts">
-          <div class="chart"><div class="ct">Return Rate (%)</div><div class="bars"><div class="bar before" style="height:88%"><span class="v">32</span></div><div class="bar after" style="height:50%"><span class="v">18</span></div></div><div class="bar-x"><span>Before</span><span>After</span></div></div>
-          <div class="chart"><div class="ct">Conversion Rate (%)</div><div class="bars"><div class="bar before" style="height:70%"><span class="v">4</span></div><div class="bar after" style="height:88%"><span class="v">5</span></div></div><div class="bar-x"><span>Before</span><span>After</span></div></div>
-          <div class="chart"><div class="ct">Avg. Order Value (₹)</div><div class="bars"><div class="bar before" style="height:72%"><span class="v">1,540</span></div><div class="bar after" style="height:88%"><span class="v">1,880</span></div></div><div class="bar-x"><span>Before</span><span>After</span></div></div>
-          <div class="chart"><div class="ct">Daily Active Users (M)</div><div class="bars"><div class="bar before" style="height:38%"><span class="v">8</span></div><div class="bar after" style="height:88%"><span class="v">19</span></div></div><div class="bar-x"><span>Before</span><span>After</span></div></div>
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; min-height:0;">
-        <div class="subhead" style="font-size:15px; margin:0 0 8px">Feature-Level KPI Table</div>
-        <div style="flex:none">
-          <table style="height:auto">
-            <tr><th>Feature</th><th>Metric</th><th>Target</th></tr>
-            <tr><td style="color:#ff2e6c;font-weight:700">StyleGenie Chat</td><td>Chat → cart conversion</td><td class="sol">12%</td></tr>
-            <tr><td style="color:#7b2ff7;font-weight:700">Visual Match</td><td>Search → PDP CTR</td><td class="sol">35%</td></tr>
-            <tr><td style="color:#06a17e;font-weight:700">Outfit Studio</td><td>Items per order</td><td class="sol">+1.8</td></tr>
-            <tr><td style="color:#ff7a3d;font-weight:700">FitGenius</td><td>Return rate</td><td class="sol">&lt;18%</td></tr>
-            <tr><td style="color:#2f6bff;font-weight:700">TrendPulse</td><td>DAU lift</td><td class="sol">+40%</td></tr>
-          </table>
-        </div>
-        <div class="impact"><div class="it">Total Projected Annual Impact: ₹1,200–1,700 Cr</div><div class="id">Revenue uplift ₹800–1,200 Cr + Return savings ₹400–525 Cr + Premium subscription ₹50–80 Cr.</div></div>
-      </div>
+    <div>
+      <div class="subhead" style="font-size:14px; margin:0 0 8px">Feature Level KPI Table</div>
+      <table class="kpi">
+        <tr><th>Feature</th><th>Metric</th><th>Target</th></tr>
+        <tr><td style="color:#ff2e6c;font-weight:700">StyleGenie Chat</td><td>Chat to cart conversion</td><td class="sol">12%</td></tr>
+        <tr><td style="color:#7b2ff7;font-weight:700">Visual Match</td><td>Search to PDP CTR</td><td class="sol">35%</td></tr>
+        <tr><td style="color:#06a17e;font-weight:700">Outfit Studio</td><td>Items per order</td><td class="sol">+1.8</td></tr>
+        <tr><td style="color:#ff7a3d;font-weight:700">FitGenius</td><td>Return rate</td><td class="sol">under 18%</td></tr>
+        <tr><td style="color:#2f6bff;font-weight:700">TrendPulse</td><td>DAU lift</td><td class="sol">+40%</td></tr>
+        <tr><td style="color:#9b59b6;font-weight:700">Capsule</td><td>Basket size</td><td class="sol">4 to 7 items</td></tr>
+      </table>
     </div>
   </div>
-  <div class="foot"><div class="src">Sources: McKinsey, "The State of Fashion 2024" (return-cost benchmarks); BCG, "AI in Retail" (conversion ranges); Statista, "Myntra Revenue &amp; User Metrics FY24".</div><div class="pg">6 / 8</div></div>
+  <div class="impact"><div class="it">Total Projected Annual Impact: ₹1,200 to 1,700 Cr</div><div class="id">Revenue uplift ₹800 to 1,200 Cr plus return savings ₹400 to 525 Cr plus premium subscription ₹50 to 80 Cr.</div></div>
+  <div class="foot">
+    <div class="refs"><b>References:</b> <a href="https://www.mckinsey.com/industries/retail/our-insights/state-of-fashion">1 McKinsey, The State of Fashion 2024 (return cost)</a> · <a href="https://www.bcg.com/capabilities/artificial-intelligence/generative-ai">2 BCG, AI in Retail (conversion ranges)</a> · <a href="https://www.statista.com/topics/8709/myntra/">3 Statista, Myntra Metrics FY24</a></div>
+    <div class="pg">6 / 8</div>
+  </div>
 </section>
 
 <!-- 07 RISKS -->
 <section class="slide">
   <div class="topbar"></div>
-  <div class="head"><div class="secno">07</div><h1 class="title">Risks, Pitfalls &amp; Mitigation Strategy</h1></div>
-  <div class="intro">Every AI product has failure modes — the discipline is to design for them upfront, not discover them in production. These are the six most critical risks for StyleGenie, each rated by severity with a specific, implementable mitigation.</div>
-  <div class="fill">
-    <div class="risks">
-      <div class="risk" style="border-top-color:#e23"><div class="rh"><span class="rname">⚠️ Hallucinations</span><span class="sev" style="background:#e23">Critical</span></div><div class="lbl">RISK</div><div class="rt">AI suggests products that don't exist, are out of stock, or sit in the wrong category — which would destroy user trust instantly.</div><div class="lbl">MITIGATION</div><div class="rt">Every response is grounded through a <b>RAG pipeline</b> — the LLM never invents product data, it only references the live catalog. Confidence scoring filters low-certainty output, and every card links to a real PDP.</div></div>
-      <div class="risk" style="border-top-color:#7b2ff7"><div class="rh"><span class="rname">🛡️ Privacy</span><span class="sev" style="background:#ff7a3d">High</span></div><div class="lbl">RISK</div><div class="rt">Users are uncomfortable sharing body measurements, photos or style data, and India's DPDP Act imposes strict obligations.</div><div class="lbl">MITIGATION</div><div class="rt">On-device image processing (CLIP runs locally). Explicit opt-in per data type with a clear benefit. Zero third-party sharing, and full DPDP compliance with deletion on request.</div></div>
-      <div class="risk" style="border-top-color:#2f6bff"><div class="rh"><span class="rname">⚡ Latency</span><span class="sev" style="background:#ff7a3d">High</span></div><div class="lbl">RISK</div><div class="rt">LLM inference can take 3–5 seconds — far too slow for a shopping flow where users expect near-instant results.</div><div class="lbl">MITIGATION</div><div class="rt">Streaming responses (word-by-word) cut perceived wait; pre-computed outfit caches for common queries; edge-deployed CLIP for visual search. Target SLA: under 2 seconds for every AI feature.</div></div>
-      <div class="risk" style="border-top-color:#06a17e"><div class="rh"><span class="rname">🤝 User Trust</span><span class="sev" style="background:#2f6bff">Medium</span></div><div class="lbl">RISK</div><div class="rt">"How can a machine know what looks good on me?" — adoption is gated on whether users trust the AI's judgement.</div><div class="lbl">MITIGATION</div><div class="rt">Transparent confidence scores ("94% match"), evidence-based explanations ("based on 10,247 reviews"), and a manual override at every step. The AI earns credibility through accuracy over time.</div></div>
-      <div class="risk" style="border-top-color:#ff7a3d"><div class="rh"><span class="rname">📈 Scalability</span><span class="sev" style="background:#ff7a3d">High</span></div><div class="lbl">RISK</div><div class="rt">GPT-4o costs at Myntra's 50M+ MAU scale could reach ₹50–100 Cr/month — unsustainable without optimisation.</div><div class="lbl">MITIGATION</div><div class="rt">Tiered models (Gemini Flash / Haiku for simple queries, premium only for complex styling), aggressive caching so ~100 similar queries share one response, and batch processing for TrendPulse.</div></div>
-      <div class="risk" style="border-top-color:#2f6bff"><div class="rh"><span class="rname">👥 Adoption</span><span class="sev" style="background:#2f6bff">Medium</span></div><div class="lbl">RISK</div><div class="rt">Users default to familiar browse-filter-scroll. AI features get ignored if presented as a separate, unfamiliar experience.</div><div class="lbl">MITIGATION</div><div class="rt">Soft inline integration — AI appears inside the existing flow, not a separate tab. Contextual nudges fire on struggle signals (long browse, repeated searches). A free tier builds the habit; premium upsell follows.</div></div>
-    </div>
+  <div class="head"><div class="secno">07</div><h1 class="title">Risks, Pitfalls and Mitigation Strategy</h1></div>
+  <div class="intro">Every AI product has failure modes. The discipline is to design for them upfront, not to discover them in production. These are the six most critical risks for StyleGenie, each rated by severity with a specific, implementable mitigation.</div>
+  <div class="risks">
+    <div class="risk" style="border-top-color:#e23"><div class="rh"><span class="rname">⚠️ Hallucinations</span><span class="sev" style="background:#e23">Critical</span></div><div class="lbl">RISK</div><div class="rt">AI suggests products that do not exist, are out of stock, or sit in the wrong category, which destroys trust instantly.</div><div class="lbl">MITIGATION</div><div class="rt">Every response is grounded through a RAG pipeline,<sup><a href="https://arxiv.org/abs/2005.11401">1</a></sup> so the LLM never invents product data and only references the live catalogue. Confidence scoring filters low certainty output, and every card links to a real PDP.</div></div>
+    <div class="risk" style="border-top-color:#7b2ff7"><div class="rh"><span class="rname">🛡️ Privacy</span><span class="sev" style="background:#ff7a3d">High</span></div><div class="lbl">RISK</div><div class="rt">Users are uncomfortable sharing body measurements, photos or style data, alongside India DPDP Act obligations.</div><div class="lbl">MITIGATION</div><div class="rt">On device image processing, explicit opt in per data type, zero third party sharing, and full DPDP Act compliance<sup><a href="https://www.meity.gov.in/data-protection-framework">2</a></sup> with deletion on request.</div></div>
+    <div class="risk" style="border-top-color:#2f6bff"><div class="rh"><span class="rname">⚡ Latency</span><span class="sev" style="background:#ff7a3d">High</span></div><div class="lbl">RISK</div><div class="rt">LLM inference takes 3 to 5 seconds, far too slow for a shopping flow where users expect near instant results.</div><div class="lbl">MITIGATION</div><div class="rt">Streaming responses to cut perceived wait, pre computed outfit caches for common queries, and an edge deployed CLIP model. Target service level under 2 seconds for all AI features.</div></div>
+    <div class="risk" style="border-top-color:#06a17e"><div class="rh"><span class="rname">🤝 User Trust</span><span class="sev" style="background:#2f6bff">Medium</span></div><div class="lbl">RISK</div><div class="rt">"How can a machine know what looks good on me?" Adoption depends on trust in the advice.</div><div class="lbl">MITIGATION</div><div class="rt">Transparent confidence scores, evidence based explanations ("based on 10,247 reviews"), and a manual override at every step. The AI earns credibility through accuracy over time.</div></div>
+    <div class="risk" style="border-top-color:#ff7a3d"><div class="rh"><span class="rname">📈 Scalability</span><span class="sev" style="background:#ff7a3d">High</span></div><div class="lbl">RISK</div><div class="rt">GPT-4o costs at Myntra scale (50M+ MAU) could reach ₹50 to 100 Cr a month, unsustainable without optimisation.</div><div class="lbl">MITIGATION</div><div class="rt">Tiered models (Gemini Flash or Haiku for simple queries, premium only for complex styling), aggressive caching so similar queries share one response, and batch processing for TrendPulse.</div></div>
+    <div class="risk" style="border-top-color:#2f6bff"><div class="rh"><span class="rname">👥 Adoption</span><span class="sev" style="background:#2f6bff">Medium</span></div><div class="lbl">RISK</div><div class="rt">Users default to the familiar browse, filter and scroll loop, and AI features get ignored if they feel like a separate experience.<sup><a href="https://www.nngroup.com/articles/">3</a></sup></div><div class="lbl">MITIGATION</div><div class="rt">Soft inline integration, so AI appears within the existing flow, not a separate tab. Contextual nudges on struggle signals, plus a free tier to build the habit and a premium upsell later.</div></div>
   </div>
-  <div class="foot"><div class="src">Sources: "On the Dangers of Stochastic Parrots" (Bender et al., 2021); India DPDP Act 2023; OpenAI Pricing &amp; Rate-Limit Docs; Nielsen Norman Group, "AI Feature Adoption Patterns".</div><div class="pg">7 / 8</div></div>
+  <div class="foot">
+    <div class="refs"><b>References:</b> <a href="https://arxiv.org/abs/2005.11401">1 Lewis et al., Retrieval Augmented Generation, 2020</a> · <a href="https://www.meity.gov.in/data-protection-framework">2 India DPDP Act, 2023</a> · <a href="https://www.nngroup.com/articles/">3 Nielsen Norman Group, AI Feature Adoption Patterns</a></div>
+    <div class="pg">7 / 8</div>
+  </div>
 </section>
 
 </body>

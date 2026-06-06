@@ -42,11 +42,11 @@
 <div class="cover">
   <div class="kick" style="color:#ffd0dd">Open Project 2026 · Build Report &amp; Interview Walkthrough</div>
   <h1>Myntra StyleGenie — What I Built &amp; How</h1>
-  <p class="lead">A GenAI-native styling layer reimagining Myntra: conversational discovery, visual search, generative outfits, AI fit prediction and a personalised trend digest — layered on top of the existing app experience.</p>
+  <p class="lead">A GenAI-native styling layer reimagining Myntra: conversational discovery, visual search, generative outfits, AI fit prediction, a personalised trend digest and a budget driven capsule builder, layered on top of the existing app experience.</p>
   <p class="lead" style="margin-top:10px"><b style="color:#fff">🔗 Live prototype:</b> <a href="https://style-genie-myntra.vercel.app/" style="color:#ffd0dd">https://style-genie-myntra.vercel.app/</a></p>
   <div>
     <span class="pill">React + Vite prototype</span>
-    <span class="pill">5 GenAI features</span>
+    <span class="pill">6 GenAI features</span>
     <span class="pill">Build ✓ Lint ✓ 23/23 tests ✓</span>
     <span class="pill">8-page strategy deck</span>
   </div>
@@ -56,7 +56,7 @@
 <h2>1 · The submission at a glance</h2>
 <table>
   <tr><th style="width:24%">Deliverable</th><th>What it is</th><th style="width:26%">File / location</th></tr>
-  <tr><td><b>Prototype (live)</b></td><td>A working Myntra-styled web app with all five StyleGenie GenAI features wired in and interactive. <b>Live:</b> <code>https://style-genie-myntra.vercel.app/</code></td><td><code>stylegenie/</code> (run <code>npm run dev</code>; deployed on Vercel)</td></tr>
+  <tr><td><b>Prototype (live)</b></td><td>A working Myntra-styled web app with all six StyleGenie GenAI features wired in and interactive (including the Capsule signature feature). <b>Live:</b> <code>https://style-genie-myntra.vercel.app/</code></td><td><code>stylegenie/</code> (run <code>npm run dev</code>; deployed on Vercel)</td></tr>
   <tr><td><b>Strategy Deck</b></td><td>8-page deck (cover + 7): Problem · Why GenAI · Approach &amp; Solution · Implementation Flowchart · Live Prototype · Metrics · Risks.</td><td><code>StyleGenie_Strategy_Deck.pdf</code></td></tr>
   <tr><td><b>Build report</b></td><td>This document — what was built, how, testing, and interview prep.</td><td><code>StyleGenie_Build_Report.pdf</code></td></tr>
 </table>
@@ -75,7 +75,7 @@
 <div class="cap">Visual Match — upload an image / pick a vibe → CLIP-style visual search returns ranked matches.</div>
 
 <div class="pagebreak"></div>
-<h2>3 · The five GenAI features (what / how / why GenAI / impact)</h2>
+<h2>3 · The six GenAI features (what / how / why GenAI / impact)</h2>
 
 <h3>① StyleGenie Chat — AI style concierge</h3>
 <p><b>What:</b> a floating concierge; users type what they need in plain language. <b>How:</b> message → intent classifier extracts occasion, budget, gender &amp; style → retrieval scores the catalogue → curated outfit cards stream back with the parsed intent shown as tags. <b>Why GenAI:</b> only an LLM can parse "<i>something Alia wore but more affordable, under 4K</i>" — four constraints in one sentence. <b>Impact:</b> collapses 40-product browsing into ~5 curated picks; target 12% chat-to-cart.</p>
@@ -89,8 +89,11 @@
 <h3>④ FitGenius — smart fit predictor</h3>
 <p><b>What:</b> enter a quick body profile, get your true size with a confidence score and the <i>evidence</i> behind it. <b>How:</b> body profile × NLP mining of review text ("runs slim", "true to size") → size + confidence + sources. <b>Why GenAI:</b> static size charts are lookup tables; an LLM turns thousands of unstructured reviews into a fit signal. <b>Impact:</b> return rate 32% → &lt;18% (~₹525 Cr/yr saved) — the single biggest lever.</p>
 
-<h3>⑤ TrendPulse — AI trend digest</h3>
-<p><b>What:</b> a personalised daily lookbook. <b>How:</b> social signals → LLM writes a trend narrative → products curated against that trend <i>and</i> the user's style graph. <b>Why GenAI:</b> generating fresh narrative content per user per day is inherently generative. <b>Impact:</b> +40% DAU from a daily check-in habit.</p>
+<h3>⑤ TrendPulse, AI trend digest</h3>
+<p><b>What:</b> a personalised daily lookbook. <b>How:</b> social signals feed an LLM that writes a trend narrative, then products are curated against that trend <i>and</i> the user's style graph. <b>Why GenAI:</b> generating fresh narrative content per user per day is inherently generative. <b>Impact:</b> +40% DAU from a daily check in habit.</p>
+
+<h3>⑥ Capsule, the out of the box signature feature</h3>
+<p><b>What:</b> the user gives a budget and the occasions they dress for; StyleGenie assembles a small set of maximally mix and match pieces and reports how many complete outfits they unlock (for example, 8 pieces giving about 18 outfits). <b>How:</b> a generative composition engine selects versatile pieces by role, scores them on occasion coverage, packs them under the budget, then computes the outfit combinations. <b>Why GenAI:</b> maximising re combinable value under a budget and a personal style graph is a generative optimisation task, not a lookup. <b>Impact:</b> drives large multi item baskets (4 to 7 items), lifts AOV, and reframes Myntra as a styling partner rather than a catalogue. <b>Try it live:</b> the <code>#capsule</code> deep link.</p>
 
 <h2>4 · Architecture &amp; tech stack</h2>
 <table>
@@ -157,7 +160,7 @@
   <tr><td>Business impact potential</td><td>Per-feature metrics and a ₹1200–1700 Cr modelled annual impact.</td></tr>
   <tr><td>Deck flow &amp; storytelling</td><td>Cover → problem → why GenAI → approach &amp; solution → implementation flowchart → live prototype → metrics → risks.</td></tr>
   <tr><td>Exhaustiveness of design</td><td>Architecture, data layer, pitfalls + mitigations, and a production path all specified.</td></tr>
-  <tr><td>Prototype functionality</td><td>All five features interactive; build + lint + 23 tests pass.</td></tr>
+  <tr><td>Prototype functionality</td><td>All six features interactive; build, lint and 23 tests pass.</td></tr>
   <tr><td>Prototype visual appeal</td><td>Faithful Myntra look &amp; feel; polished AI modules and trend cards.</td></tr>
 </table>
 

@@ -124,18 +124,18 @@ const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
 function stylistNote(anchor, occ) {
   const notes = {
-    wedding: `Pair the ${anchor.name.toLowerCase()} with statement accessories for a celebration-ready finish.`,
-    festive: `Festive-coded styling — rich tones and ethnic accents complement the ${anchor.brand} piece.`,
-    party: `A night-out edit: keep it sleek, let the ${anchor.name.toLowerCase()} be the hero.`,
-    date: `Effortless date-night layering, balanced and polished.`,
-    casual: `Easy everyday combo — comfortable, put-together, low effort.`,
-    college: `Campus-friendly and budget-smart, styled to stand out.`,
+    wedding: `Pair the ${anchor.name.toLowerCase()} with statement accessories for a celebration ready finish.`,
+    festive: `Festive coded styling: rich tones and ethnic accents complement the ${anchor.brand} piece.`,
+    party: `A night out edit: keep it sleek and let the ${anchor.name.toLowerCase()} be the hero.`,
+    date: `Effortless date night layering, balanced and polished.`,
+    casual: `Easy everyday combo: comfortable, put together, low effort.`,
+    college: `Campus friendly and budget smart, styled to stand out.`,
     office: `Sharp workwear pairing that reads professional yet current.`,
     vacation: `Breezy vacation styling, made for photos and comfort.`,
-    brunch: `Daytime chic — relaxed but intentional.`,
-    gym: `Performance-first athleisure that still looks good off the mat.`,
+    brunch: `Daytime chic, relaxed but intentional.`,
+    gym: `Performance first athleisure that still looks good off the mat.`,
   };
-  return notes[occ] || `Styled around the ${anchor.name.toLowerCase()} for a cohesive, occasion-ready look.`;
+  return notes[occ] || `Styled around the ${anchor.name.toLowerCase()} for a cohesive, occasion ready look.`;
 }
 
 // --- Fit prediction (review-mining NLP stand-in) --------------------------
@@ -152,17 +152,17 @@ export function predictFit(product, body = BODY_DEFAULT) {
 
   if (fit.includes("slim")) {
     idx = Math.min(sizes.length - 1, idx + 1);
-    evidence.push(`Reviews say "${product.brand} runs slim" — we sized up.`);
+    evidence.push(`Reviews say "${product.brand} runs slim", so we sized up.`);
     confidence += 0.1;
   } else if (fit.includes("oversized") || fit.includes("relaxed")) {
     idx = Math.max(0, idx - 1);
-    evidence.push(`This style is cut oversized — most buyers sized down.`);
+    evidence.push(`This style is cut oversized, so most buyers sized down.`);
     confidence += 0.08;
   } else if (fit.includes("true")) {
     evidence.push(`94% of reviewers found this "true to size".`);
     confidence += 0.12;
   } else {
-    evidence.push(`Free-size piece — designed to fit a wide range.`);
+    evidence.push(`Free size piece, designed to fit a wide range.`);
   }
 
   if (body.build === "athletic") { evidence.push(`Adjusted for an athletic build across the shoulders.`); }
@@ -189,23 +189,84 @@ export function visualMatch(vibe) {
 export function trendDigest() {
   const trends = [
     { tag: "Quiet Luxury", color: "#b7a98b",
-      story: "Understated, expensive-looking minimalism is dominating feeds — think clean lines, neutral palettes and elevated basics.",
+      story: "Understated, expensive-looking minimalism is dominating feeds: clean lines, neutral palettes and elevated basics.",
       seed: "minimal elegant" },
     { tag: "Indie Sleaze Revival", color: "#3a3a4a",
-      story: "Y2K's grittier cousin is back: dark party dressing, statement co-ords and bold night-out energy.",
+      story: "Y2K's grittier cousin is back, with dark party dressing, statement co ords and bold night out energy.",
       seed: "party glam women" },
     { tag: "Festive Heritage", color: "#9e3b4f",
-      story: "Wedding season is here — modern takes on ethnic wear blend tradition with contemporary tailoring.",
+      story: "Wedding season is here, and modern takes on ethnic wear blend tradition with contemporary tailoring.",
       seed: "festive ethnic wedding" },
     { tag: "Coastal Off-Duty", color: "#6c8ea0",
-      story: "Linen, breezy silhouettes and vacation-core pieces for the travel set chasing the golden hour.",
+      story: "Linen, breezy silhouettes and vacation core pieces for the travel set chasing the golden hour.",
       seed: "vacation linen beach" },
     { tag: "Athleisure 2.0", color: "#2f6f5e",
-      story: "Gym-to-street is sharper than ever — technical fabrics styled for real life, not just the treadmill.",
+      story: "Gym to street is sharper than ever, with technical fabrics styled for real life, not just the treadmill.",
       seed: "athleisure sporty men" },
   ];
   return trends.map((t) => ({
     ...t,
     products: searchCatalog(parseIntent(t.seed), { limit: 4 }),
   }));
+}
+
+// --- Capsule Wardrobe builder (generative composition + optimisation) ------
+// Out-of-the-box signature feature: given a budget and the occasions a user
+// dresses for, StyleGenie assembles a small set of maximally re-combinable
+// pieces, then reports how many complete outfits they unlock. In production an
+// LLM would optimise versatility x budget x personal style graph.
+export function buildCapsule(budget, occasions, gender) {
+  const occ = occasions && occasions.length ? occasions : ["casual"];
+  const pool = PRODUCTS.filter(
+    (p) => p.gender === gender || p.category === "footwear" || p.category === "accessory"
+  );
+  const versatility = (p) => occ.reduce((a, o) => a + (p.occasion.includes(o) ? 1 : 0), 0);
+  const byRole = (cats) =>
+    pool
+      .filter((p) => cats.includes(p.category))
+      .map((p) => ({ p, v: versatility(p) }))
+      .sort((a, b) => b.v - a.v || a.p.price - b.p.price)
+      .map((x) => x.p);
+
+  const wishlist = [
+    { role: "top", cats: ["top", "shirt", "tshirt", "kurta"], n: 2 },
+    { role: "bottom", cats: ["jeans", "skirt", "joggers"], n: 2 },
+    { role: "dress", cats: ["dress", "saree", "coord"], n: gender === "women" ? 1 : 0 },
+    { role: "layer", cats: ["blazer", "hoodie"], n: 1 },
+    { role: "feet", cats: ["footwear"], n: 2 },
+    { role: "extra", cats: ["bag", "accessory"], n: 1 },
+  ];
+
+  const items = [];
+  let spent = 0;
+  for (const w of wishlist) {
+    let added = 0;
+    for (const p of byRole(w.cats)) {
+      if (added >= w.n) break;
+      if (items.some((x) => x.id === p.id)) continue;
+      if (spent + p.price <= budget) { items.push({ ...p, role: w.role }); spent += p.price; added++; }
+    }
+  }
+
+  const count = (r) => items.filter((i) => i.role === r).length;
+  const tops = count("top"), bottoms = count("bottom"), dresses = count("dress");
+  const layers = count("layer"), feet = Math.max(1, count("feet"));
+  const base = tops * bottoms + dresses;
+  const layered = layers > 0 ? tops * bottoms : 0;
+  const outfits = (base + layered) * feet;
+
+  // a few example combinations
+  const topItems = items.filter((i) => i.role === "top");
+  const botItems = items.filter((i) => i.role === "bottom");
+  const feetItems = items.filter((i) => i.role === "feet");
+  const examples = [];
+  for (let i = 0; i < topItems.length; i++) {
+    for (let j = 0; j < botItems.length && examples.length < 3; j++) {
+      const look = [topItems[i], botItems[j]];
+      if (feetItems.length) look.push(feetItems[(i + j) % feetItems.length]);
+      examples.push({ items: look, total: look.reduce((a, p) => a + p.price, 0) });
+    }
+  }
+
+  return { items, pieces: items.length, spent, outfits: Math.max(outfits, items.length), examples, occasions: occ, budget };
 }

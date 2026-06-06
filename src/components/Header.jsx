@@ -4,7 +4,7 @@ const CHIPS = [
   "Wedding", "Party", "Casual", "Office", "Vacation", "Festive", "Athleisure", "Date Night",
 ];
 
-export default function Header({ route, setRoute, bagCount, onVisualMatch, onChipSearch }) {
+export default function Header({ route, setRoute, bagCount, onVisualMatch, onChipSearch, onCapsule }) {
   return (
     <header className="header">
       <div className="container header-inner">
@@ -23,6 +23,7 @@ export default function Header({ route, setRoute, bagCount, onVisualMatch, onChi
               {c.badge && <span className="ai-badge">{c.badge}</span>}
             </button>
           ))}
+          <button onClick={onCapsule}>Capsule<span className="ai-badge">AI</span></button>
         </nav>
         <div className="search">
           <span>🔍</span>
